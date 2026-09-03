@@ -1,158 +1,121 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Home | WDD 231</title>
+    <title>Home | WDD 231</title>
 
-  <meta
-    name="description"
-    content="WDD 231 course home page for Jeffrey Davila."
-  >
-  <meta name="author" content="Jeffrey Davila">
+    <meta name="description"
+        content="Explore Jeffrey Davila's WDD 231 course home page, completed courses, projects, and progress in web development.">
+    <meta name="author" content="Jeffrey Davila">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="styles/page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <script src="scripts/home.js" defer></script>
+
+
+    <link rel="stylesheet" href="styles/page.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <script src="scripts/home.js" defer></script>
 </head>
 
 <body>
-  <header class="home">
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-      aria-controls="primary-navigation"
-    >
-      <span class="hamburger">☰</span>
-    </button>
+    <header class="home">
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="primary-navigation">
+            <span class="hamburger">☰</span>
+        </button>
 
-    <nav
-      class="header-content"
-      id="primary-navigation"
-      aria-label="Main navigation"
-    >
-      <ul>
-        <li>
-          <a href="index.html" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="chamber.html">Chamber</a>
-        </li>
-        <li>
-          <a href="final.html">Final Project</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+        <nav class="header-content" id="primary-navigation" aria-label="Main navigation">
+            <ul>
+                <li>
+                    <a href="index.html" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="chamber.html">Chamber</a>
+                </li>
+                <li>
+                    <a href="final.html">Final Project</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-  <main class="container">
-    <h1>Home</h1>
+    <main class="container">
+        <h1>Home</h1>
 
-    <section class="home-content">
-      <article class="about-me">
-        <h2>About Me</h2>
+        <section class="home-content">
+            <article class="about-me">
+                <h2>About Me</h2>
 
-        <p class="hello">
-          Hello! My name is Jeffrey Davila, and I’m from Navotas City,
-          Metro Manila, Philippines. I am currently studying Web
-          Development at BYU–Idaho. In my free time, I enjoy watching
-          movies about artificial intelligence and playing the piano.
-          I may be shy at first, but please don’t hesitate to talk to
-          me I’m friendly and always happy to meet new people!
+                <p class="hello">
+                    Hello! My name is Jeffrey Davila, and I’m from Navotas City,
+                    Metro Manila, Philippines. I am currently studying Web
+                    Development at BYU–Idaho. In my free time, I enjoy watching
+                    movies about artificial intelligence and playing the piano.
+                    I may be shy at first, but please don’t hesitate to talk to
+                    me I’m friendly and always happy to meet new people!
+                </p>
+            </article>
+
+            <article class="student-photo">
+                <h2>Student Photo</h2>
+
+                <img class="profile-photo" src="images/profile.jpg" alt="Jeffrey Davila" width="400" height="400">
+            </article>
+        </section>
+
+        <section class="courses">
+            <h2>Web Certificate Courses</h2>
+
+            <div class="course-filters">
+                <button type="button" id="all-courses">All</button>
+                <button type="button" id="wdd-courses">WDD</button>
+                <button type="button" id="cse-courses">CSE</button>
+            </div>
+
+            <div id="course-list" class="course-list"></div>
+
+            <p class="credit">
+                Total Credits: <span id="totalCredits"></span>
+            </p>
+
+            <p class="course-key">✓ Completed course</p>
+        </section>
+
+        <section class="media">
+            <h2>Connect With Me</h2>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <img src="images/lingin.png" alt="" width="50" height="50">
+                </a>
+
+                <a href="https://x.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <img src="images/exex.png" alt="" width="50" height="50">
+                </a>
+
+                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <img src="images/git.png" alt="" width="50" height="50">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="currentYear"></span>
+            😊 Jeffrey Davila 😊 Philippines, Metro Manila
         </p>
-      </article>
 
-      <article class="student-photo">
-        <h2>Student Photo</h2>
-
-        <img
-          class="profile-photo"
-          src="images/profile.jpg"
-          alt="Jeffrey Davila"
-          width="400"
-          height="400"
-        >
-      </article>
-    </section>
-
-    <section class="courses">
-      <h2>Web Certificate Courses</h2>
-
-      <div class="course-filters">
-        <button type="button" id="all-courses">All</button>
-        <button type="button" id="wdd-courses">WDD</button>
-        <button type="button" id="cse-courses">CSE</button>
-      </div>
-
-      <div id="course-list" class="course-list"></div>
-
-      <p class="credit">
-        Total Credits: <span id="totalCredits"></span>
-      </p>
-
-      <p class="course-key">✓ Completed course</p>
-    </section>
-
-    <section class="media">
-      <h2>Connect With Me</h2>
-
-      <div class="social-links">
-        <a
-          href="https://www.linkedin.com/in/your-username"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <img
-            src="images/in.png"
-            alt=""
-            width="50"
-            height="50"
-          >
-        </a>
-
-        <a
-          href="https://x.com/your-username"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="X"
-        >
-          <img
-            src="images/x.png"
-            alt=""
-            width="50"
-            height="50"
-          >
-        </a>
-
-        <a
-          href="https://github.com/your-username"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <img
-            src="images/git.png"
-            alt=""
-            width="50"
-            height="50"
-          >
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>
-      &copy; <span id="currentYear"></span>
-      😊 Jeffrey Davila 😊 Philippines, Metro Manila
-    </p>
-
-    <p id="lastModified"></p>
-  </footer>
+        <p id="lastModified"></p>
+    </footer>
 </body>
+
 </html>
