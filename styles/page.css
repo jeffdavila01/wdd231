@@ -1,0 +1,358 @@
+/* =========================================
+   COLOR VARIABLES
+========================================= */
+
+:root {
+  --primary-color: #1f2937;
+  --secondary-color: #c49a3a;
+  --accent-color: #ead9ad;
+  --background-color: #fffdf7;
+  --card-color: #ffffff;
+  --text-color: #292929;
+  --muted-color: #6b7280;
+  --border-color: #e8dfc9;
+  --shadow-color: rgba(31, 41, 55, 0.15);
+}
+
+
+/* =========================================
+   GENERAL STYLES
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1 {
+  margin-bottom: 1rem;
+  
+  
+}
+
+h2 {
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  color: var(--accent-color);
+  background-color: var(--primary-color);
+  text-align: center;
+}
+.title {
+    color: var(--accent-color);
+}
+
+
+/* =========================================
+   HEADER AND NAVIGATION
+========================================= */
+
+header {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  
+  background-color: var(--primary-color);
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--accent-color);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  border-radius: 5px;
+  transition:
+    color 0.3s,
+    background-color 0.3s;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--primary-color);
+  background-color: var(--accent-color);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.about-me,
+.student-photo {
+  overflow: hidden;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.hello {
+  width: 100%;
+  padding: 0 1.5rem 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.profile-photo {
+  display: block;
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 40px;
+}
+
+
+/* =========================================
+   COURSE SECTION
+========================================= */
+
+.courses {
+  margin-top: 2rem;
+}
+
+.course-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.course-filters button {
+  padding: 12px;
+  color: white;
+  background-color: var(--muted-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    color 0.3s,
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.course-filters button:hover,
+.course-filters button:focus {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.course-card {
+  padding: 15px;
+  background-color: var(--card-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.course-card.completed {
+  background-color: var(--accent-color);
+}
+
+.credit {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* =========================================
+   SOCIAL MEDIA SECTION
+========================================= */
+
+.media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-top: 2px solid var(--primary-color);
+  text-align: center;
+}
+
+.media h2 {
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.social-links a:hover {
+  transform: translateY(-4px);
+}
+
+.social-links img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  object-fit: contain;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: var(--background-color);
+  background-color: var(--muted-color);
+  text-align: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+#lastModified,
+#currentTime {
+  font-size: 0.9rem;
+}
+
+
+/* =========================================
+   MOBILE VIEW
+========================================= */
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0.75rem 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  nav.open {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 0.75rem;
+    border-top: 1px solid var(--accent-color);
+    text-align: center;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .home-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hello {
+    font-size: 1rem;
+  }
+
+  .profile-photo {
+    width: 80%;
+    margin: 1rem auto;
+    border-radius: 25px;
+  }
+
+  /* Filter buttons remain in one row */
+  .course-filters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .course-filters button {
+    padding: 10px 4px;
+    font-size: 0.8rem;
+  }
+
+  /* Courses become three vertical rows */
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    padding: 1.5rem 1rem;
+  }
+
+  .social-links {
+    gap: 15px;
+  }
+
+  .social-links img {
+    width: 40px;
+    height: 40px;
+  }
+}
