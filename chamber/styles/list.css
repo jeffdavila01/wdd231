@@ -1,0 +1,119 @@
+/* ==========================================
+   TABLET VIEW
+========================================== */
+
+@media screen and (min-width: 650px) {
+  .header-content {
+    min-height: 85px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .site-name {
+    font-size: 1.25rem;
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+  }
+
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ==========================================
+   DESKTOP VIEW
+========================================== */
+
+@media screen and (min-width: 850px) {
+  .menu-button {
+    display: none;
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  .navigation ul {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navigation a {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .member-card img {
+    height: 185px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    align-items: start;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+
+  /* ========================================
+     DESKTOP LIST VIEW
+  ======================================== */
+
+  .members-list .member-card {
+    display: grid;
+    grid-template-columns:
+      minmax(180px, 1.4fr)
+      minmax(120px, 0.8fr)
+      minmax(180px, 1.2fr)
+      minmax(120px, 0.8fr)
+      auto;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .members-list .member-card h2 {
+    font-size: 1.05rem;
+  }
+
+  .members-list .member-card img,
+  .members-list .category,
+  .members-list .description {
+    display: none;
+  }
+
+  .members-list .membership {
+    margin: 0;
+  }
+
+  .members-list .address,
+  .members-list .phone {
+    margin: 0;
+  }
+
+  .members-list .website-link {
+    margin: 0;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Navotas Fresh Seafood Market",
+    "address": "125 M. Naval Street, Navotas City",
+    "phone": "(02) 8000-1001",
+    "website": "https://example.com/navotas-seafood",
+    "image": "navotas-seafood.webp",
+    "membershipLevel": 3,
+    "category": "Food and Seafood",
+    "description": "Provides fresh fish and seafood supplied by local fishermen."
+  },
+  {
+    "name": "Bayanihan Hardware Supply",
+    "address": "48 North Bay Boulevard, Navotas City",
+    "phone": "(02) 8000-1002",
+    "website": "https://example.com/bayanihan-hardware",
+    "image": "hardware-tool.webp",
+    "membershipLevel": 2,
+    "category": "Hardware and Construction",
+    "description": "Supplies tools, building materials, and home improvement products."
+  },
+  {
+    "name": "Casil Shots Photography",
+    "address": "72 San Jose, Navotas City",
+    "phone": "(02) 8000-1003",
+    "website": "https://example.com/casil-shots",
+    "image": "casil-shots.webp",
+    "membershipLevel": 2,
+    "category": "Photography",
+    "description": "Offers photography services for weddings, birthdays, and portraits."
+  },
+  {
+    "name": "Navotas Bay Cafe",
+    "address": "19 C. Santiago Street, Navotas City",
+    "phone": "(02) 8000-1004",
+    "website": "https://example.com/navotas-bay-cafe",
+    "image": "navotas-bay-cafe.webp",
+    "membershipLevel": 1,
+    "category": "Restaurant",
+    "description": "Serves Filipino meals, coffee, pastries, and affordable snacks."
+  },
+  {
+    "name": "HarborTech Computer Services",
+    "address": "33 Gov. A. Pascual Street, Navotas City",
+    "phone": "(02) 8000-1005",
+    "website": "https://example.com/harbortech",
+    "image": "harbortech.webp",
+    "membershipLevel": 3,
+    "category": "Technology",
+    "description": "Provides computer repair, software installation, and technical support."
+  },
+  {
+    "name": "MotoGear Parts Center",
+    "address": "91 Daanghari Road, Navotas City",
+    "phone": "(02) 8000-1006",
+    "website": "https://example.com/motogear",
+    "image": "motogear-parts.webp",
+    "membershipLevel": 1,
+    "category": "Motorcycle Parts",
+    "description": "Sells motorcycle parts, safety equipment, and maintenance accessories."
+  },
+  {
+    "name": "Malaya Printing Solutions",
+    "address": "56 Bagumbayan North, Navotas City",
+    "phone": "(02) 8000-1007",
+    "website": "https://example.com/malaya-printing",
+    "image": "malaya-printing.webp",
+    "membershipLevel": 2,
+    "category": "Printing Services",
+    "description": "Creates business cards, banners, invitations, stickers, and custom prints."
+  }
+]

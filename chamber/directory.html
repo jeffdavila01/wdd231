@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamber</title>
+    <meta name="description"
+        content="Explore Jeffrey Davila's WDD 231 course home page, completed courses, projects, and progress in web development.">
+    <meta name="author" content="Jeffrey Davila">
+    <meta property="og:title" content="Navotas Chamber of Commerce Directory">
+
+    <meta property="og:description" content="Discover businesses and organizations in the Navotas Chamber of Commerce.">
+
+    <meta property="og:image" content="https://jeffdavila01.github.io/wdd231/chamber/images/social-preview.webp">
+
+    <meta property="og:url" content="https://jeffdavila01.github.io/wdd231/chamber/directory.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/list.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/directory.js" defer></script>  
+    <script src="scripts/navigation.js" defer></script> 
+
+</head>
+
+<body>
+    <header>
+        
+    <div class="header-content">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true">⚓</span>
+
+        <span class="brand-text">
+          <span class="site-name">Navotas Chamber of Commerce</span>
+          <span class="tagline">
+            Connecting Businesses, Strengthening Communities
+          </span>
+        </span>
+      </a>
+
+      <button
+        id="menu-button"
+        class="menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        ☰
+      </button>
+    </div>
+
+    <nav id="main-navigation" class="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li>
+          <a href="directory.html" class="active" aria-current="page">
+            Directory
+          </a>
+        </li>
+
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Business Directory</h1>
+
+    <p class="directory-introduction">
+      Discover businesses and organizations serving the Navotas community.
+    </p>
+
+    <div class="view-buttons" aria-label="Choose directory layout">
+      <button
+        id="grid-button"
+        class="view-button active"
+        type="button"
+        aria-pressed="true"
+      >
+        Grid View
+      </button>
+
+      <button
+        id="list-button"
+        class="view-button"
+        type="button"
+        aria-pressed="false"
+      >
+        List View
+      </button>
+    </div>
+
+    <!-- The business information will be added here using JavaScript -->
+    <div id="members" class="members-grid" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <section class="contact-information">
+        <h2>Navotas Chamber of Commerce</h2>
+        <address>
+          <p>Navotas City, Metro Manila, Philippines</p>
+          <p>
+            Email:
+            <a href="mailto:info@navotaschamber.example">
+              info@navotaschamber.example
+            </a>
+          </p>
+          <p>Phone: (02) 8000-2310</p>
+        </address>
+      </section>
+
+      <div class="social-links">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit our Facebook page"
+        >
+          Facebook
+        </a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit our LinkedIn page"
+        >
+          LinkedIn
+        </a>
+      </div>
+
+      <section class="development-information">
+        <h2>Development Information</h2>
+        <p>Jeffrey Davila</p>
+        <p>WDD 231</p>
+
+        <p>
+          &copy; <span id="current-year"></span>
+          Navotas Chamber of Commerce
+        </p>
+
+        <p id="last-modified"></p>
+      </section>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

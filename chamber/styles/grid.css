@@ -1,0 +1,405 @@
+/* ==========================================
+   COLOR VARIABLES
+========================================== */
+
+:root {
+  --primary-color: #0b3343;
+  --secondary-color: #e6b84a;
+  --accent-color: #dff5f7;
+  --background-color: #f7fafb;
+  --card-color: #ffffff;
+  --text-color: #17262d;
+  --muted-color: #52656e;
+  --border-color: #cfdee2;
+  --shadow: 0 5px 15px rgb(11 51 67 / 15%);
+}
+
+
+/* ==========================================
+   GENERAL PAGE
+========================================== */
+
+body {
+  min-width: 320px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+.header-content {
+  width: min(1120px, calc(100% - 1rem));
+  min-height: 75px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.brand {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--secondary-color);
+  border-radius: 50%;
+  background-color: #164f61;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.site-name {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.tagline {
+  display: block;
+  margin-top: 0.2rem;
+  color: #d7e8ec;
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================
+   HAMBURGER BUTTON
+========================================== */
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid rgb(255 255 255 / 60%);
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.menu-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.navigation {
+  display: none;
+  background-color: #072733;
+}
+
+.navigation.open {
+  display: block;
+}
+
+.navigation a {
+  display: block;
+  padding: 0.9rem 1rem;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+main {
+  width: min(1120px, calc(100% - 2rem));
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 8vw, 2.8rem);
+  text-align: center;
+}
+
+.directory-introduction {
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+
+/* ==========================================
+   GRID AND LIST BUTTONS
+========================================== */
+
+.view-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.view-button {
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.view-button:hover,
+.view-button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+
+/* ==========================================
+   GRID VIEW
+========================================== */
+
+.members-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.member-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--card-color);
+  box-shadow: var(--shadow);
+}
+
+.member-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.member-card h2 {
+  margin: 1rem 1rem 0.5rem;
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+}
+
+.member-card p {
+  margin: 0.25rem 1rem;
+  color: var(--muted-color);
+}
+
+.member-card .category {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.membership {
+  align-self: flex-start;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.membership-1 {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.membership-2 {
+  background-color: #d9e0e3;
+  color: #24353c;
+}
+
+.membership-3 {
+  background-color: var(--secondary-color);
+  color: #172026;
+}
+
+.website-link {
+  align-self: flex-start;
+  margin: auto 1rem 1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.website-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+
+/* ==========================================
+   LIST VIEW
+========================================== */
+
+.members-list {
+  display: block;
+}
+
+.members-list .member-card {
+  margin-bottom: 0;
+  padding: 1rem;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.members-list .member-card:nth-child(even) {
+  background-color: var(--accent-color);
+}
+
+.members-list .member-card img {
+  display: none;
+}
+
+.members-list .member-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.members-list .member-card p {
+  margin: 0.2rem 0;
+}
+
+.members-list .description {
+  display: none;
+}
+
+.members-list .website-link {
+  margin: 0.75rem 0 0;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.footer-content {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+footer h2 {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+footer p {
+  margin-bottom: 0.3rem;
+  color: #dbe9ec;
+}
+
+footer a {
+  color: white;
+  overflow-wrap: anywhere;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.social-links a {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+
+/* ==========================================
+   VERY SMALL SCREENS
+========================================== */
+
+@media (max-width: 380px) {
+  .tagline {
+    display: none;
+  }
+
+  .site-name {
+    font-size: 0.9rem;
+  }
+
+  .view-buttons {
+    flex-direction: column;
+  }
+
+  .view-button {
+    width: 100%;
+  }
+}
