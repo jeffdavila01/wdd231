@@ -1,0 +1,408 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+
+/* HEADER */
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+#clock {
+    color: #cbd5e1;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #cbd5e1;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #2563eb;
+    color: white;
+}
+
+
+/* CARDS */
+
+.card,
+.scanner-box {
+    background: white;
+
+    padding: 25px;
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.08);
+}
+
+.card h2,
+.scanner-box h2 {
+    margin-bottom: 15px;
+}
+
+
+/* SCANNER */
+
+#scannerStatus {
+    margin-bottom: 15px;
+    color: #64748b;
+}
+
+#reader {
+    width: 100%;
+    max-width: 600px;
+
+    margin:
+        0 auto
+        20px auto;
+}
+
+.scanner-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 2px solid #2563eb;
+    border-color: transparent;
+}
+
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+}
+
+.primary-btn,
+.save-btn,
+#findEmployeeBtn {
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+.save-btn {
+    font-size: 16px;
+}
+
+.danger-btn {
+    border: none;
+
+    background: #dc2626;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* INFORMATION */
+
+.instruction {
+    margin-bottom: 20px;
+    color: #64748b;
+}
+
+
+/* MANUAL SEARCH */
+
+.manual-search {
+    display: flex;
+    gap: 10px;
+}
+
+.manual-search input {
+    margin: 0;
+}
+
+.manual-search button {
+    min-width: 140px;
+}
+
+
+/* EMPLOYEE RESULT */
+
+.employee-card {
+    margin-top: 20px;
+
+    background: #f8fafc;
+
+    border:
+        2px solid
+        #2563eb;
+
+    border-radius: 10px;
+
+    padding: 20px;
+}
+
+.employee-icon {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.employee-card p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+
+/* IN OUT */
+
+.attendance-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.in-btn,
+.out-btn {
+    flex: 1;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.in-btn {
+    background: #16a34a;
+}
+
+.out-btn {
+    background: #dc2626;
+}
+
+.in-btn:hover {
+    background: #15803d;
+}
+
+.out-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* MESSAGE */
+
+.message {
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+.message.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* TABLE */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid
+        #e2e8f0;
+}
+
+th {
+    background: #0f172a;
+    color: white;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+.empty {
+    text-align: center;
+    color: #64748b;
+}
+
+
+/* DELETE */
+
+.delete-btn {
+    border: none;
+
+    background: #dc2626;
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 5px;
+}
+
+
+/* HIDDEN */
+
+.hidden {
+    display: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .container {
+        width: 94%;
+        margin-top: 15px;
+    }
+
+    .card,
+    .scanner-box {
+        padding: 18px;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .scanner-buttons {
+        flex-direction: column;
+    }
+
+    .manual-search {
+        flex-direction: column;
+    }
+
+    .attendance-buttons {
+        flex-direction: column;
+    }
+
+    #findEmployeeBtn {
+        padding: 12px;
+    }
+
+}
