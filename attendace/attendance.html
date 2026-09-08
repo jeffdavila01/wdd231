@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Attendance Tracker</title>
+
+    <link rel="stylesheet" href="styles/id.css">
+
+    <!-- Barcode / QR scanner library -->
+    <script
+        src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"
+        defer>
+    </script>
+
+    <script src="scripts/id.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Employee Attendance System</h1>
+        <p id="clock"></p>
+    </header>
+
+    <main class="container">
+
+        <!-- SWITCH BUTTONS -->
+        <div class="tabs">
+
+            <button
+                id="registerTab"
+                class="tab active"
+                type="button">
+                Register Employee
+            </button>
+
+            <button
+                id="attendanceTab"
+                class="tab"
+                type="button">
+                Attendance
+            </button>
+
+        </div>
+
+
+        <!-- CAMERA -->
+        <section class="scanner-box">
+
+            <h2>Barcode Scanner</h2>
+
+            <p id="scannerStatus">
+                Scanner mode: Register employee barcode
+            </p>
+
+            <div id="reader"></div>
+
+            <div class="scanner-buttons">
+
+                <button
+                    id="startScannerBtn"
+                    class="primary-btn"
+                    type="button">
+                    Start Camera
+                </button>
+
+                <button
+                    id="stopScannerBtn"
+                    class="danger-btn"
+                    type="button"
+                    disabled>
+                    Stop Camera
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- REGISTER EMPLOYEE -->
+        <section id="registerSection">
+
+            <div class="card">
+
+                <h2>Register Employee</h2>
+
+                <p class="instruction">
+                    Scan the employee barcode first,
+                    then enter the employee information.
+                </p>
+
+                <form id="employeeForm">
+
+                    <label for="barcode">
+                        Barcode Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="barcode"
+                        placeholder="Scan or type barcode"
+                        required>
+
+
+                    <label for="employeeId">
+                        Employee ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="employeeId"
+                        placeholder="Example: EMP-001"
+                        required>
+
+
+                    <label for="employeeName">
+                        Employee Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="employeeName"
+                        placeholder="Example: Juan Dela Cruz"
+                        required>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+                        Save Employee
+                    </button>
+
+                </form>
+
+                <p id="employeeMessage"></p>
+
+            </div>
+
+
+            <!-- EMPLOYEE TABLE -->
+            <div class="card">
+
+                <h2>Registered Employees</h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Barcode</th>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="employeeTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATTENDANCE -->
+        <section
+            id="attendanceSection"
+            class="hidden">
+
+            <div class="card">
+
+                <h2>Employee Attendance</h2>
+
+                <p class="instruction">
+                    Scan an employee barcode.
+                </p>
+
+
+                <!-- Manual barcode option -->
+                <div class="manual-search">
+
+                    <input
+                        type="text"
+                        id="attendanceBarcode"
+                        placeholder="Scan or enter barcode">
+
+                    <button
+                        id="findEmployeeBtn"
+                        type="button">
+                        Find Employee
+                    </button>
+
+                </div>
+
+
+                <p id="attendanceMessage"></p>
+
+
+                <!-- EMPLOYEE INFORMATION -->
+                <div
+                    id="employeeCard"
+                    class="employee-card hidden">
+
+                    <div class="employee-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <p>
+                            <strong>Employee Name:</strong>
+                            <span id="displayEmployeeName"></span>
+                        </p>
+
+                        <p>
+                            <strong>Employee ID:</strong>
+                            <span id="displayEmployeeId"></span>
+                        </p>
+
+                        <p>
+                            <strong>Barcode:</strong>
+                            <span id="displayBarcode"></span>
+                        </p>
+
+                    </div>
+
+
+                    <div class="attendance-buttons">
+
+                        <button
+                            id="inBtn"
+                            class="in-btn"
+                            type="button">
+                            IN
+                        </button>
+
+                        <button
+                            id="outBtn"
+                            class="out-btn"
+                            type="button">
+                            OUT
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATTENDANCE TABLE -->
+            <div class="card">
+
+                <h2>Today's Attendance</h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Time IN</th>
+                                <th>Time OUT</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="attendanceTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
