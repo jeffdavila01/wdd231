@@ -1,0 +1,268 @@
+```css
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+body {
+  background: #f4f6f8;
+  padding: 20px;
+  color: #222;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   MODE BUTTONS
+========================= */
+
+.mode-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.mode-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.active {
+  background: #007bff;
+  color: white;
+}
+
+
+.inactive {
+  background: #ddd;
+  color: #222;
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+#reader {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.camera-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+
+.camera-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+
+#startCamera {
+  background: #222;
+  color: white;
+}
+
+
+#stopCamera {
+  background: #ddd;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  margin-top: 20px;
+}
+
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+
+/* =========================
+   SAVE / SEARCH BUTTONS
+========================= */
+
+.save-btn,
+.search-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 13px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.save-btn {
+  background: #28a745;
+}
+
+
+.search-btn {
+  background: #007bff;
+}
+
+
+/* =========================
+   PRODUCT RESULT
+========================= */
+
+.result {
+  margin-top: 20px;
+  padding: 18px;
+  background: #eef7ff;
+  border-radius: 10px;
+  display: none;
+}
+
+
+.result h2 {
+  margin-bottom: 10px;
+}
+
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #198754;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  margin: 15px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* =========================
+   SAVED PRODUCTS
+========================= */
+
+.products {
+  margin-top: 30px;
+}
+
+
+.products h2 {
+  margin-bottom: 10px;
+}
+
+
+.product-item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+
+.product-item button {
+  margin-top: 7px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+  display: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+  body {
+    padding: 10px;
+  }
+
+
+  .container {
+    padding: 15px;
+  }
+
+
+  .mode-buttons {
+    flex-direction: column;
+  }
+
+
+  h1 {
+    font-size: 24px;
+  }
+
+}
+```
