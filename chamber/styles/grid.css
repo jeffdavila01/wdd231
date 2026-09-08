@@ -403,3 +403,28 @@ footer a {
     width: 100%;
   }
 }
+@media screen and (min-width: 850px) {
+  .menu-button {
+    display: none;
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  .navigation ul {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navigation li {
+    display: block;
+  }
+
+  .navigation a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+  }
+}
