@@ -39,6 +39,7 @@ button:focus-visible {
 ========================================== */
 
 header {
+  
   background-color: var(--primary-color);
   color: white;
   box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
@@ -126,7 +127,7 @@ header {
 ========================================== */
 
 .navigation {
-  
+  display: none;
   background-color: #072733;
 }
 
@@ -404,6 +405,7 @@ footer a {
     width: 100%;
   }
 }
+
 @media screen and (min-width: 850px) {
   .menu-button {
     display: none;
