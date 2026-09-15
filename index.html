@@ -1,120 +1,239 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home | WDD 231</title>
+    <title>Home | Navotas Chamber of Commerce</title>
 
     <meta name="description"
-        content="Explore Jeffrey Davila's WDD 231 course home page, completed courses, projects, and progress in web development.">
+        content="Visit the Navotas Chamber of Commerce for community events, local weather, business information, and featured businesses in Navotas City.">
+
     <meta name="author" content="Jeffrey Davila">
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Navotas Chamber of Commerce">
+
+    <meta property="og:description" content="Connecting businesses and strengthening communities in Navotas City.">
+
+    <meta property="og:image" content="https://jeffdavila01.github.io/wdd231/chamber/images/navotas-seafood.webp">
+
+    <meta property="og:url" content="https://jeffdavila01.github.io/wdd231/chamber/index.html">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <!-- Shared header, navigation, and footer design -->
+    <link rel="stylesheet" href="styles/grid.css">
 
+    <!-- Home page design -->
+    <link rel="stylesheet" href="styles/home.css">
 
-    <link rel="stylesheet" href="styles/page.css">
-    <link rel="stylesheet" href="styles/larger.css">
-
+    <script src="scripts/navigation.js" defer></script>
     <script src="scripts/home.js" defer></script>
+    <script src="scripts/date.js" defer></script>
 </head>
 
 <body>
-    <header class="home">
-        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
-            aria-controls="primary-navigation">
-            <span class="hamburger">☰</span>
-        </button>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <a class="brand" href="index.html">
+                <span class="logo" aria-hidden="true">⚓</span>
 
-        <nav class="header-content" id="primary-navigation" aria-label="Main navigation">
+                <span class="brand-text">
+                    <span class="site-name">
+                        Navotas Chamber of Commerce
+                    </span>
+
+                    <span class="tagline">
+                        Connecting Businesses, Strengthening Communities
+                    </span>
+                </span>
+            </a>
+
+            <button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="main-navigation">
+                ☰
+            </button>
+        </div>
+
+        <nav id="main-navigation" class="navigation" aria-label="Main navigation">
             <ul>
                 <li>
-                    <a href="index.html" aria-current="page">Home</a>
+                    <a href="index.html" class="active" aria-current="page">
+                        Home
+                    </a>
                 </li>
+
                 <li>
-                    <a href="chamber.html">Chamber</a>
+                    <a href="directory.html">Directory</a>
                 </li>
+
                 <li>
-                    <a href="final.html">Final Project</a>
+                    <a href="join.html">Join</a>
+                </li>
+
+                <li>
+                    <a href="discover.html">Discover</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <h1>Home</h1>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <img src="images/navotas-seafood.webp" alt="Local seafood businesses and fishing industry in Navotas City"
+                width="1200" height="600">
 
-        <section class="home-content">
-            <article class="about-me">
-                <h2>About Me</h2>
+            <div class="hero-content">
+                <h1>Grow Your Business in Navotas</h1>
 
-                <p class="hello">
-                    Hello! My name is Jeffrey Davila, and I’m from Navotas City,
-                    Metro Manila, Philippines. I am currently studying Web
-                    Development at BYU–Idaho. In my free time, I enjoy watching
-                    movies about artificial intelligence and playing the piano.
-                    I may be shy at first, but please don’t hesitate to talk to
-                    me I’m friendly and always happy to meet new people!
+                <p>
+                    Connect with local entrepreneurs, discover new opportunities,
+                    and help strengthen the business community of Navotas City.
                 </p>
-            </article>
 
-            <article class="student-photo">
-                <h2>Student Photo</h2>
-
-                <img class="profile-photo" src="images/profile.jpg" alt="Jeffrey Davila" width="400" height="400">
-            </article>
-        </section>
-
-        <section class="courses">
-            <h2>Web Certificate Courses</h2>
-
-            <div class="course-filters">
-                <button type="button" id="all-courses">All</button>
-                <button type="button" id="wdd-courses">WDD</button>
-                <button type="button" id="cse-courses">CSE</button>
+                <a class="cta-button" href="join.html">
+                    Join the Chamber
+                </a>
             </div>
-
-            <div id="course-list" class="course-list"></div>
-
-            <p class="credit">
-                Total Credits: <span id="totalCredits"></span>
-            </p>
-
-            <p class="course-key">✓ Completed course</p>
         </section>
 
-        <section class="media">
-            <h2>Connect With Me</h2>
+        <!-- EVENTS AND WEATHER -->
+        <section class="information-grid" aria-label="Community information">
+            <!-- CURRENT EVENTS -->
+            <article class="information-card events-card">
+                <h2>Current Events</h2>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn">
-                    <img src="images/lingin.png" alt="" width="50" height="50">
-                </a>
+                <div class="event">
+                    <h3>Navotas Business Networking Night</h3>
 
-                <a href="https://x.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="X">
-                    <img src="images/exex.png" alt="" width="50" height="50">
-                </a>
+                    <p class="event-date">
+                        September 25, 2026 · 6:00 PM
+                    </p>
 
-                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub">
-                    <img src="images/git.png" alt="" width="50" height="50">
-                </a>
+                    <p>
+                        Meet local business owners, build professional connections,
+                        and discover partnership opportunities in Navotas City.
+                    </p>
+                </div>
+
+                <div class="event">
+                    <h3>Small Business Development Workshop</h3>
+
+                    <p class="event-date">
+                        October 3, 2026 · 9:00 AM
+                    </p>
+
+                    <p>
+                        Learn practical strategies for business planning, digital
+                        marketing, customer service, and financial management.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CURRENT WEATHER -->
+            <article class="information-card weather-card">
+                <h2>Current Weather</h2>
+
+                <div class="current-weather">
+                    <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="Current weather condition" width="90" height="90">
+
+                    <div>
+                        <p>
+                            <span id="current-temperature">--</span>&deg;C
+                        </p>
+
+                        <p id="weather-description">
+                            Loading weather...
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- THREE-DAY FORECAST -->
+            <article class="information-card forecast-card">
+                <h2>3-Day Forecast</h2>
+
+                <div id="forecast-container" class="forecast-container">
+                    <p>Loading forecast...</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- BUSINESS SPOTLIGHTS -->
+        <section class="spotlights-section">
+            <h2>Business Spotlights</h2>
+
+            <div id="spotlight-container" class="spotlight-container">
+                <p>Loading featured businesses...</p>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>
-            &copy; <span id="currentYear"></span>
-            😊 Jeffrey Davila 😊 Philippines, Metro Manila
-        </p>
+        <div class="footer-content">
+            <section>
+                <h2>Navotas Chamber of Commerce</h2>
 
-        <p id="lastModified"></p>
+                <p>Navotas City, Metro Manila</p>
+                <p>Philippines</p>
+
+                <p>
+                    Email:
+                    <a href="mailto:info@navotaschamber.org">
+                        info@navotaschamber.org
+                    </a>
+                </p>
+
+                <p>
+                    Phone:
+                    <a href="tel:+639123456789">
+                        +63 912 345 6789
+                    </a>
+                </p>
+            </section>
+
+            <nav class="social-links" aria-label="Social media links">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                    Facebook
+                </a>
+
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                    LinkedIn
+                </a>
+
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+                    YouTube
+                </a>
+            </nav>
+
+            <section>
+                <h2>Project Information</h2>
+
+                <p>WDD 231 Chamber Project</p>
+                <p>Jeffrey Davila</p>
+
+                <p>
+                    &copy;
+                    <span id="current-year"></span>
+                    Navotas Chamber of Commerce
+                </p>
+
+                <p id="last-modified"></p>
+            </section>
+        </div>
     </footer>
 </body>
 
