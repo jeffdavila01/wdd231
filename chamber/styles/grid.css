@@ -142,6 +142,12 @@ header {
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  
+  
+}
+.navigation ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .navigation a:hover,
@@ -420,6 +426,7 @@ footer a {
     margin: 0 auto;
     display: flex;
     justify-content: flex-end;
+    
   }
 
   .navigation li {
