@@ -373,3 +373,5 @@ function displaySpotlightMembers(members) {
 getCurrentWeather();
 getWeatherForecast();
 getSpotlightMembers();
+
+const re = new RegExp("ab+c");
