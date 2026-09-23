@@ -1,0 +1,335 @@
+:root {
+  --primary-color: #0b3343;
+  --secondary-color: #e6b84a;
+  --accent-color: #dff5f7;
+  --background-color: #f7fafb;
+  --card-color: #ffffff;
+  --text-color: #17262d;
+  --muted-color: #52656e;
+  --border-color: #cfdee2;
+  --shadow: 0 5px 15px rgb(11 51 67 / 15%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.navigation ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.join-main,
+.thankyou-main {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.join-main h1,
+.thankyou-main h1 {
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+
+.page-introduction {
+  margin-bottom: 2rem;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+.join-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.application-panel,
+.membership-panel {
+  min-width: 0;
+}
+
+.application-panel,
+.confirmation-card {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--card-color);
+  box-shadow: var(--shadow);
+}
+
+.application-panel h2,
+.membership-panel h2,
+.confirmation-card h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 1.5rem 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.application-panel label {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.application-panel input:not([type="hidden"]),
+.application-panel select,
+.application-panel textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  margin-top: 0.4rem;
+  padding: 0.75rem;
+  border: 1px solid var(--muted-color);
+  border-radius: 6px;
+  background: var(--card-color);
+  color: var(--text-color);
+  font: inherit;
+}
+
+.application-panel textarea {
+  resize: vertical;
+}
+
+.application-panel input::placeholder,
+.application-panel textarea::placeholder {
+  color: var(--muted-color);
+  opacity: 1;
+}
+
+.field-help {
+  margin-top: -0.75rem;
+  margin-bottom: 1.2rem;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+header a:focus-visible,
+header button:focus-visible,
+footer a:focus-visible {
+  outline-color: var(--secondary-color);
+}
+
+.application-panel .submit-button,
+.close-dialog,
+.return-link {
+  display: inline-block;
+  min-height: 44px;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.application-panel .submit-button {
+  white-space: normal;
+}
+
+.application-panel .submit-button:hover,
+.close-dialog:hover,
+.return-link:hover {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.membership-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.level-card {
+  padding: 1.3rem;
+  border: 1px solid var(--border-color);
+  border-top: 6px solid var(--primary-color);
+  border-radius: 12px;
+  background: var(--card-color);
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: reveal-card 700ms ease-out both;
+}
+
+.level-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.level-card p {
+  margin: 0.4rem 0;
+}
+
+.level-card .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.level-card a {
+  display: inline-block;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  color: var(--primary-color);
+  text-underline-offset: 4px;
+  font-weight: 700;
+}
+
+.np-card {
+  border-top-color: #397b79;
+}
+
+.bronze-card {
+  border-top-color: #97602e;
+  animation-delay: 100ms;
+}
+
+.silver-card {
+  border-top-color: #6b7d87;
+  animation-delay: 200ms;
+}
+
+.gold-card {
+  border-top-color: var(--secondary-color);
+  animation-delay: 300ms;
+}
+
+@keyframes reveal-card {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Membership dialogs */
+
+dialog {
+  width: min(480px, calc(100% - 2rem));
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  background: var(--card-color);
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+}
+
+dialog h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.dialog-price {
+  font-weight: 700;
+}
+
+dialog ul {
+  padding-left: 1.3rem;
+}
+
+dialog li {
+  margin-bottom: 0.6rem;
+}
+
+/* Thank You page */
+
+.confirmation-card {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.confirmation-card h1 {
+  text-align: left;
+}
+
+.application-details {
+  margin: 1.5rem 0;
+}
+
+.application-details > div {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.application-details dt {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.application-details dd {
+  margin: 0.3rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (min-width: 850px) {
+  .join-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+
+  .application-details > div {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .application-details dd {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .level-card {
+    animation: none;
+  }
+}
