@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Join | Navotas Chamber of Commerce</title>
+  <meta name="description"
+    content="Apply for membership in the Navotas Chamber of Commerce and explore membership benefits for your organization.">
+  <meta name="author" content="Jeffrey Davila">
+
+  <meta property="og:title" content="Join the Navotas Chamber of Commerce">
+  <meta property="og:description"
+    content="Connect with local businesses and explore our membership opportunities.">
+  <meta property="og:image"
+    content="https://jeffdavila01.github.io/wdd231/chamber/images/navotas-seafood.webp">
+  <meta property="og:url"
+    content="https://jeffdavila01.github.io/wdd231/chamber/join.html">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="styles/grid.css">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true">⚓</span>
+        <span class="brand-text">
+          <span class="site-name">Navotas Chamber of Commerce</span>
+          <span class="tagline">
+            Connecting Businesses, Strengthening Communities
+          </span>
+        </span>
+      </a>
+
+      <button id="menu-button" class="menu-button" type="button"
+        aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="main-navigation">
+        ☰
+      </button>
+    </div>
+
+    <nav id="main-navigation" class="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li>
+          <a href="join.html" class="active" aria-current="page">Join</a>
+        </li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="join-main">
+    <h1>Join the Chamber</h1>
+    <p class="page-introduction">
+      Build connections, grow your business, and support our Navotas community.
+    </p>
+
+    <div class="join-layout">
+      <section class="application-panel" aria-labelledby="application-heading">
+        <h2 id="application-heading">Membership Application</h2>
+        <p>Fields marked with * are required.</p>
+
+        <form method="get" action="thankyou.html">
+          <fieldset>
+            <legend>Applicant Information</legend>
+
+            <label>
+              First Name *
+              <input type="text" name="firstName" id="firstName"
+                title="Enter your first name" autocomplete="given-name"
+                required>
+            </label>
+
+            <label>
+              Last Name *
+              <input type="text" name="lastName" id="lastName"
+                title="Enter your last name" autocomplete="family-name"
+                required>
+            </label>
+
+            <label>
+              Organizational Title
+              <input type="text" name="organizationTitle"
+                id="organizationTitle"
+                title="Use at least seven characters: letters, spaces, and hyphens only"
+                autocomplete="organization-title"
+                pattern="[A-Za-z \-]{7,}"
+                minlength="7"
+                aria-describedby="title-help">
+            </label>
+            <p id="title-help" class="field-help">
+              Optional. At least 7 characters using letters, spaces, or
+              hyphens. Example: Sales Manager.
+            </p>
+
+            <label>
+              Email Address *
+              <input type="email" name="email" id="email"
+                title="Enter your email address"
+                autocomplete="email"
+                placeholder="jeffrey@example.com"
+                required>
+            </label>
+
+            <label>
+              Mobile Phone Number *
+              <input type="tel" name="phone" id="phone"
+                title="Enter your mobile phone number"
+                autocomplete="mobile tel"
+                placeholder="+63 912 345 6789"
+                required>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Organization Information</legend>
+
+            <label>
+              Business / Organization Name *
+              <input type="text" name="businessName" id="businessName"
+                title="Enter your business or organization name"
+                autocomplete="organization"
+                required>
+            </label>
+
+            <label>
+              Membership Level *
+              <select name="membership" id="membership"
+                title="Choose a membership level" required>
+                <option value="" disabled selected>Select a membership</option>
+                <option value="np">NP Membership — Free</option>
+                <option value="bronze">Bronze — ₱1,000 per year</option>
+                <option value="silver">Silver — ₱2,500 per year</option>
+                <option value="gold">Gold — ₱5,000 per year</option>
+              </select>
+            </label>
+
+            <label>
+              Business / Organization Description
+              <textarea name="description" id="description"
+                title="Describe your business or organization"
+                rows="5"
+                placeholder="Tell us about your products, services, or mission."></textarea>
+            </label>
+          </fieldset>
+
+          <input type="hidden" name="timestamp" id="timestamp">
+
+          <input type="submit" class="submit-button"
+            value="Submit Membership Application">
+        </form>
+      </section>
+
+      <section class="membership-panel" aria-labelledby="membership-heading">
+        <h2 id="membership-heading">Membership Levels</h2>
+        <p>Compare the options before choosing your membership.</p>
+
+        <div class="membership-cards">
+          <article class="level-card np-card">
+            <h3>NP Membership</h3>
+            <p>For nonprofit organizations</p>
+            <p class="price">Free</p>
+            <a href="#np-modal" data-dialog="np-modal"
+              aria-haspopup="dialog">View NP benefits</a>
+          </article>
+
+          <article class="level-card bronze-card">
+            <h3>Bronze Membership</h3>
+            <p>Build your local connections</p>
+            <p class="price">₱1,000 / year</p>
+            <a href="#bronze-modal" data-dialog="bronze-modal"
+              aria-haspopup="dialog">View Bronze benefits</a>
+          </article>
+
+          <article class="level-card silver-card">
+            <h3>Silver Membership</h3>
+            <p>Expand your business visibility</p>
+            <p class="price">₱2,500 / year</p>
+            <a href="#silver-modal" data-dialog="silver-modal"
+              aria-haspopup="dialog">View Silver benefits</a>
+          </article>
+
+          <article class="level-card gold-card">
+            <h3>Gold Membership</h3>
+            <p>Access our highest level of support</p>
+            <p class="price">₱5,000 / year</p>
+            <a href="#gold-modal" data-dialog="gold-modal"
+              aria-haspopup="dialog">View Gold benefits</a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Four separate membership dialogs -->
+    <dialog id="np-modal" aria-labelledby="np-heading">
+      <h2 id="np-heading">NP Membership Benefits</h2>
+      <p class="dialog-price">Free — for nonprofit organizations</p>
+      <ul>
+        <li>Basic chamber directory listing</li>
+        <li>Community networking invitations</li>
+        <li>Monthly chamber newsletter</li>
+        <li>Volunteer and community partnership opportunities</li>
+      </ul>
+      <button type="button" class="close-dialog" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="bronze-modal" aria-labelledby="bronze-heading">
+      <h2 id="bronze-heading">Bronze Membership Benefits</h2>
+      <p class="dialog-price">₱1,000 per year</p>
+      <ul>
+        <li>All basic membership benefits</li>
+        <li>Business networking events</li>
+        <li>One business training workshop per year</li>
+        <li>5% discount on paid chamber events</li>
+      </ul>
+      <button type="button" class="close-dialog" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="silver-modal" aria-labelledby="silver-heading">
+      <h2 id="silver-heading">Silver Membership Benefits</h2>
+      <p class="dialog-price">₱2,500 per year</p>
+      <ul>
+        <li>All Bronze benefits</li>
+        <li>Eligibility for rotating home-page spotlights</li>
+        <li>Three business training workshops per year</li>
+        <li>10% discount on paid chamber events</li>
+        <li>Quarterly newsletter advertising</li>
+      </ul>
+      <button type="button" class="close-dialog" autofocus>Close</button>
+    </dialog>
+
+    <dialog id="gold-modal" aria-labelledby="gold-heading">
+      <h2 id="gold-heading">Gold Membership Benefits</h2>
+      <p class="dialog-price">₱5,000 per year</p>
+      <ul>
+        <li>All Silver benefits</li>
+        <li>Monthly newsletter advertising</li>
+        <li>Access to all regular training workshops</li>
+        <li>20% discount on paid chamber events</li>
+        <li>Invitations to special business leadership events</li>
+      </ul>
+      <button type="button" class="close-dialog" autofocus>Close</button>
+    </dialog>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <section>
+        <h2>Navotas Chamber of Commerce</h2>
+        <p>Navotas City, Metro Manila, Philippines</p>
+      </section>
+
+      <section>
+        <h2>Project Information</h2>
+        <p>Jeffrey Davila · WDD 231</p>
+        <p>
+          &copy; <span id="current-year"></span>
+          Navotas Chamber of Commerce
+        </p>
+        <p id="last-modified"></p>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>

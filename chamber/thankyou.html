@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thank You | Navotas Chamber of Commerce</title>
+  <meta name="description"
+    content="Review your Navotas Chamber of Commerce membership application details.">
+  <meta name="author" content="Jeffrey Davila">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/grid.css">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/thankyou.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true">⚓</span>
+        <span class="brand-text">
+          <span class="site-name">Navotas Chamber of Commerce</span>
+          <span class="tagline">
+            Connecting Businesses, Strengthening Communities
+          </span>
+        </span>
+      </a>
+
+      <button id="menu-button" class="menu-button" type="button"
+        aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="main-navigation">
+        ☰
+      </button>
+    </div>
+
+    <nav id="main-navigation" class="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html" class="active">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="thankyou-main">
+    <section class="confirmation-card" aria-labelledby="confirmation-heading">
+      <h1 id="confirmation-heading">Thank You!</h1>
+      <p id="confirmation-message">
+        Thank you for completing the membership application.
+        Review your details below.
+      </p>
+
+      <dl id="application-details" class="application-details"></dl>
+
+      <a class="return-link" href="index.html">Return to Home</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <section>
+        <h2>Navotas Chamber of Commerce</h2>
+        <p>Navotas City, Metro Manila, Philippines</p>
+      </section>
+
+      <section>
+        <h2>Project Information</h2>
+        <p>Jeffrey Davila · WDD 231</p>
+        <p>
+          &copy; <span id="current-year"></span>
+          Navotas Chamber of Commerce
+        </p>
+        <p id="last-modified"></p>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>
