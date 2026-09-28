@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Banaue Rice Terraces",
+    "address": "Banaue, Ifugao, Philippines",
+    "description": "A famous mountain landscape in Ifugao known for its centuries-old rice terraces carved into the hillsides.",
+    "image": "images/harbortech.webp"
+  },
+  {
+    "name": "Mayon Volcano",
+    "address": "Albay, Bicol Region, Philippines",
+    "description": "An iconic active volcano in Albay known for its nearly perfect cone shape and beautiful surrounding scenery.",
+    "image": "images/mayon-volcano.jpg"
+  },
+  {
+    "name": "Chocolate Hills",
+    "address": "Carmen, Bohol, Philippines",
+    "description": "A natural attraction in Bohol made up of hundreds of cone-shaped hills that turn brown during the dry season.",
+    "image": "images/chocolate-hills.jpg"
+  },
+  {
+    "name": "Puerto Princesa Underground River",
+    "address": "Sabang, Puerto Princesa, Palawan, Philippines",
+    "description": "A protected underground river system in Palawan featuring limestone caves, rock formations, and rich natural scenery.",
+    "image": "images/underground-river.jpg"
+  },
+  {
+    "name": "Kawasan Falls",
+    "address": "Badian, Cebu, Philippines",
+    "description": "A popular waterfall destination in Cebu known for its turquoise water, multiple waterfall levels, and canyoneering activities.",
+    "image": "images/kawasan-falls.jpg"
+  }
+]
