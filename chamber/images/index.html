@@ -1,0 +1,7106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+
+
+  <base target="_top">
+
+
+
+  <meta charset="UTF-8">
+
+
+
+  <meta
+
+    name="viewport"
+
+    content="width=device-width, initial-scale=1"
+
+  >
+
+
+
+  <title>
+
+    Inventory & Sales System
+
+  </title>
+
+
+
+
+
+  <style>
+
+
+
+    :root {
+
+      --primary: #17324d;
+
+      --primary-dark: #10283d;
+
+      --secondary: #246b8e;
+
+      --background: #f3f6f9;
+
+      --white: #ffffff;
+
+      --border: #d9e1e8;
+
+      --text: #17212b;
+
+      --muted: #6c7885;
+
+      --success: #137333;
+
+      --danger: #b3261e;
+
+      --info: #eaf3f8;
+
+    }
+
+
+
+
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+
+
+
+
+    body {
+
+      margin: 0;
+
+      font-family: Arial, sans-serif;
+
+      background: var(--background);
+
+      color: var(--text);
+
+    }
+
+
+
+
+
+    header {
+
+      background: var(--primary);
+
+      color: white;
+
+      padding: 18px 25px;
+
+    }
+
+
+
+
+
+    header h1 {
+
+      margin: 0;
+
+      font-size: 22px;
+
+    }
+
+
+
+
+
+    header p {
+
+      margin: 5px 0 0;
+
+      opacity: .8;
+
+    }
+
+
+
+
+
+    nav {
+
+      background: white;
+
+      display: flex;
+
+      gap: 5px;
+
+      padding: 10px 20px;
+
+      border-bottom: 1px solid var(--border);
+
+      overflow-x: auto;
+
+    }
+
+
+
+
+
+    nav button {
+
+      border: none;
+
+      background: transparent;
+
+      padding: 10px 16px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      border-radius: 6px;
+
+      white-space: nowrap;
+
+    }
+
+
+
+
+
+    nav button:hover,
+
+    nav button.active {
+
+      background: var(--primary);
+
+      color: white;
+
+    }
+
+
+
+
+
+    main {
+
+      max-width: 1500px;
+
+      margin: auto;
+
+      padding: 20px;
+
+    }
+
+
+
+
+
+    .page {
+
+      display: none;
+
+    }
+
+
+
+
+
+    .page.active {
+
+      display: block;
+
+    }
+
+
+
+
+
+    .card {
+
+      background: white;
+
+      border-radius: 12px;
+
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+      border: 1px solid var(--border);
+
+      box-shadow:
+
+        0 3px 12px rgba(0,0,0,.04);
+
+    }
+
+
+
+
+
+    .card h2 {
+
+      margin-top: 0;
+
+    }
+
+
+
+
+
+    .message {
+
+      display: none;
+
+      margin-bottom: 15px;
+
+      padding: 12px;
+
+      border-radius: 7px;
+
+    }
+
+
+
+
+
+    .message.success {
+
+      display: block;
+
+      background: #e6f4ea;
+
+      color: var(--success);
+
+    }
+
+
+
+
+
+    .message.error {
+
+      display: block;
+
+      background: #fce8e6;
+
+      color: var(--danger);
+
+    }
+
+
+
+
+
+    .daily-info {
+
+      background: #f7f9fb;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      padding: 15px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+
+
+    .daily-info h3 {
+
+      margin: 0 0 15px;
+
+      color: var(--primary);
+
+      font-size: 16px;
+
+    }
+
+
+
+
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(4, minmax(180px, 1fr));
+
+      gap: 15px;
+
+    }
+
+
+
+
+
+    label {
+
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      margin-bottom: 5px;
+
+    }
+
+
+
+
+
+    input {
+
+      width: 100%;
+
+      padding: 9px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 6px;
+
+    }
+
+
+
+
+
+    input:focus {
+
+      outline: 2px solid #9bc9df;
+
+      border-color: var(--secondary);
+
+    }
+
+
+
+
+
+    .inventory-section {
+
+      margin-top: 20px;
+
+    }
+
+
+
+
+
+    .inventory-section-title {
+
+      padding: 12px 15px;
+
+      background: var(--primary);
+
+      color: white;
+
+      border-radius: 8px 8px 0 0;
+
+      font-size: 17px;
+
+      font-weight: bold;
+
+    }
+
+
+
+
+
+    .inventory-help {
+
+      background: var(--info);
+
+      padding: 10px 15px;
+
+      border-left: 4px solid var(--secondary);
+
+      line-height: 1.5;
+
+      font-size: 13px;
+
+    }
+
+
+
+
+
+    .table-container {
+
+      overflow-x: auto;
+
+      width: 100%;
+
+    }
+
+
+
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      min-width: 900px;
+
+    }
+
+
+
+
+
+    th {
+
+      background: var(--primary);
+
+      color: white;
+
+      padding: 10px;
+
+      font-size: 12px;
+
+      text-align: center;
+
+    }
+
+
+
+
+
+    td {
+
+      border-bottom: 1px solid var(--border);
+
+      padding: 7px;
+
+      vertical-align: middle;
+
+    }
+
+
+
+
+
+    tbody tr:hover {
+
+      background: #f7fafc;
+
+    }
+
+
+
+
+
+    td input {
+
+      min-width: 80px;
+
+    }
+
+
+
+
+
+    .number {
+
+      text-align: right;
+
+    }
+
+
+
+
+
+    .result {
+
+      font-weight: bold;
+
+      color: var(--primary);
+
+      text-align: center;
+
+      white-space: nowrap;
+
+    }
+
+
+
+
+
+    .unit {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+    }
+
+
+
+
+
+    .conversion {
+
+      color: var(--secondary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      white-space: nowrap;
+
+    }
+
+
+
+
+
+    .actions {
+
+      display: flex;
+
+      justify-content: flex-end;
+
+      gap: 10px;
+
+      margin-top: 20px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+
+
+
+    button.primary {
+
+      border: none;
+
+      background: var(--primary);
+
+      color: white;
+
+      padding: 11px 20px;
+
+      border-radius: 7px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+    }
+
+
+
+
+
+    button.primary:hover {
+
+      background: var(--primary-dark);
+
+    }
+
+
+
+
+
+    button.secondary {
+
+      background: white;
+
+      color: var(--primary);
+
+      border: 1px solid var(--primary);
+
+      padding: 10px 18px;
+
+      border-radius: 7px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+    }
+
+
+
+
+
+    .dashboard-cards {
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 15px;
+
+    }
+
+
+
+
+
+    .stat {
+
+      background: white;
+
+      padding: 20px;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--border);
+
+    }
+
+
+
+
+
+    .stat small {
+
+      color: var(--muted);
+
+    }
+
+
+
+
+
+    .stat strong {
+
+      display: block;
+
+      margin-top: 8px;
+
+      font-size: 26px;
+
+      color: var(--primary);
+
+    }
+
+
+
+
+
+    .summary {
+
+      max-width: 500px;
+
+      margin: 25px 0 0 auto;
+
+    }
+
+
+
+
+
+    .summary-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 10px;
+
+      border-bottom: 1px solid var(--border);
+
+    }
+
+
+
+
+
+    .summary-row.net {
+
+      background: var(--primary);
+
+      color: white;
+
+      font-weight: bold;
+
+      font-size: 18px;
+
+    }
+
+
+
+
+
+    .summary input {
+
+      width: 140px;
+
+      text-align: right;
+
+    }
+
+
+
+
+
+    .positive {
+
+      color: var(--success);
+
+      font-weight: bold;
+
+    }
+
+
+
+
+
+    .negative {
+
+      color: var(--danger);
+
+      font-weight: bold;
+
+    }
+
+
+
+
+
+    .loading {
+
+      text-align: center;
+
+      padding: 25px;
+
+      color: var(--muted);
+
+    }
+
+
+
+
+
+    @media(max-width: 900px) {
+
+
+
+      .form-grid {
+
+        grid-template-columns:
+
+          repeat(2, 1fr);
+
+      }
+
+
+
+    }
+
+
+
+
+
+    @media(max-width: 600px) {
+
+
+
+      main {
+
+        padding: 10px;
+
+      }
+
+
+
+
+
+      .card {
+
+        padding: 12px;
+
+      }
+
+
+
+
+
+      .form-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+
+
+
+      .actions button {
+
+        width: 100%;
+
+      }
+
+
+
+    }
+
+
+
+
+
+    @media print {
+
+
+
+      nav,
+
+      .actions,
+
+      #message {
+
+        display: none !important;
+
+      }
+
+
+
+
+
+      body {
+
+        background: white;
+
+      }
+
+
+
+
+
+      .card {
+
+        border: none;
+
+        box-shadow: none;
+
+      }
+
+
+
+    }
+
+
+
+  </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+<header>
+
+
+
+  <h1>
+
+    Inventory & Sales System
+
+  </h1>
+
+
+
+  <p>
+
+    Daily Stock Inventory and Sales Monitoring
+
+  </p>
+
+
+
+</header>
+
+
+
+
+
+<nav>
+
+
+
+  <button
+
+    class="active"
+
+    onclick="showPage('dashboard', this)"
+
+  >
+
+    Dashboard
+
+  </button>
+
+
+
+
+
+  <button
+
+    onclick="showPage('inventory', this)"
+
+  >
+
+    Inventory
+
+  </button>
+
+
+
+
+
+  <button
+
+    onclick="showPage('sales', this)"
+
+  >
+
+    Sales Report
+
+  </button>
+
+
+
+
+
+  <button
+
+    onclick="showPage('reports', this)"
+
+  >
+
+    Reports
+
+  </button>
+
+
+
+</nav>
+
+
+
+
+
+<main>
+
+
+
+
+
+<div
+
+  id="message"
+
+  class="message"
+
+></div>
+
+
+
+
+
+<!-- ==================================================
+
+     DASHBOARD
+
+\================================================== -->
+
+
+
+<section
+
+  id="dashboard"
+
+  class="page active"
+
+>
+
+
+
+  <div class="card">
+
+
+
+    <h2>
+
+      Dashboard
+
+    </h2>
+
+
+
+    <p>
+
+      Daily inventory and sales monitoring.
+
+    </p>
+
+
+
+  </div>
+
+
+
+
+
+  <div class="dashboard-cards">
+
+
+
+    <div class="stat">
+
+
+
+      <small>
+
+        Inventory Items
+
+      </small>
+
+
+
+      <strong id="inventoryCount">
+
+        0
+
+      </strong>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="stat">
+
+
+
+      <small>
+
+        Gross Sales
+
+      </small>
+
+
+
+      <strong id="dashboardGross">
+
+        ₱0.00
+
+      </strong>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="stat">
+
+
+
+      <small>
+
+        Net Sales
+
+      </small>
+
+
+
+      <strong id="dashboardNet">
+
+        ₱0.00
+
+      </strong>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="stat">
+
+
+
+      <small>
+
+        Over / Short
+
+      </small>
+
+
+
+      <strong id="dashboardOverShort">
+
+        ₱0.00
+
+      </strong>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+
+
+
+
+<!-- ==================================================
+
+     INVENTORY
+
+\================================================== -->
+
+
+
+<section
+
+  id="inventory"
+
+  class="page"
+
+>
+
+
+
+  <div class="card">
+
+
+
+    <h2>
+
+      Stocks Inventory
+
+    </h2>
+
+
+
+
+
+    <div class="daily-info">
+
+
+
+      <h3>
+
+        Daily Inventory Information
+
+      </h3>
+
+
+
+
+
+      <div class="form-grid">
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Date
+
+          </label>
+
+
+
+          <input
+
+            type="date"
+
+            id="reportDate"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 1
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="staff1"
+
+            placeholder="Staff 1"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 2
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="staff2"
+
+            placeholder="Staff 2"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 3
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="staff3"
+
+            placeholder="Staff 3"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- MEAT -->
+
+
+
+    <div class="inventory-section">
+
+
+
+      <div class="inventory-section-title">
+
+        Meat Inventory — Goto / Chicken / Pork
+
+      </div>
+
+
+
+
+
+      <div class="inventory-help">
+
+
+
+        Raw stock uses kilograms.
+
+        Cooked inventory uses grams.
+
+
+
+        <br>
+
+
+
+        Raw Remaining =
+
+        Beginning Raw + Delivery − Out From Freezer
+
+
+
+        <br>
+
+
+
+        Used / Sold =
+
+        Beginning Cooked + Cooked Today − Ending Cooked
+
+
+
+      </div>
+
+
+
+
+
+      <div class="table-container">
+
+
+
+        <table>
+
+
+
+          <thead>
+
+
+
+            <tr>
+
+
+
+              <th>
+
+                Stock
+
+              </th>
+
+
+
+              <th>
+
+                Beginning Raw
+
+                <br>
+
+                KG
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                KG
+
+              </th>
+
+
+
+              <th>
+
+                Out From Freezer
+
+                <br>
+
+                KG
+
+              </th>
+
+
+
+              <th>
+
+                Raw Remaining
+
+                <br>
+
+                KG
+
+              </th>
+
+
+
+              <th>
+
+                Beginning / Re-cooked
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Cooked Today
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Ending Cooked
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Used / Sold
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+            </tr>
+
+
+
+          </thead>
+
+
+
+
+
+          <tbody id="meatBody">
+
+
+
+            <tr>
+
+
+
+              <td
+
+                colspan="9"
+
+                class="loading"
+
+              >
+
+                Loading...
+
+              </td>
+
+
+
+            </tr>
+
+
+
+          </tbody>
+
+
+
+        </table>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- TOKWA -->
+
+
+
+    <div class="inventory-section">
+
+
+
+      <div class="inventory-section-title">
+
+        Tokwa Inventory
+
+      </div>
+
+
+
+
+
+      <div class="inventory-help">
+
+
+
+        1 plastic = 10 pieces.
+
+
+
+        Delivery is entered in plastic.
+
+
+
+        Raw stock is counted in pieces.
+
+
+
+        Cooked Tokwa is measured in grams.
+
+
+
+      </div>
+
+
+
+
+
+      <div class="table-container">
+
+
+
+        <table>
+
+
+
+          <thead>
+
+
+
+            <tr>
+
+
+
+              <th>
+
+                Stock
+
+              </th>
+
+
+
+              <th>
+
+                Beginning Raw
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                Plastic
+
+              </th>
+
+
+
+              <th>
+
+                Delivery Converted
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Out
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Raw Remaining
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Beginning Cooked
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Cooked Today
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Ending Cooked
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+              <th>
+
+                Used / Sold
+
+                <br>
+
+                Grams
+
+              </th>
+
+
+
+            </tr>
+
+
+
+          </thead>
+
+
+
+
+
+          <tbody id="tokwaBody"></tbody>
+
+
+
+        </table>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- EGG -->
+
+
+
+    <div class="inventory-section">
+
+
+
+      <div class="inventory-section-title">
+
+        Egg Inventory
+
+      </div>
+
+
+
+
+
+      <div class="inventory-help">
+
+
+
+        1 tray = 30 pieces.
+
+
+
+        Beginning and Ending keep
+
+        whole trays and loose pieces separate.
+
+
+
+      </div>
+
+
+
+
+
+      <div class="table-container">
+
+
+
+        <table>
+
+
+
+          <thead>
+
+
+
+            <tr>
+
+
+
+              <th>
+
+                Stock
+
+              </th>
+
+
+
+              <th>
+
+                Beginning
+
+                <br>
+
+                Trays
+
+              </th>
+
+
+
+              <th>
+
+                Beginning
+
+                <br>
+
+                Loose PCS
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                Trays
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Ending
+
+                <br>
+
+                Trays
+
+              </th>
+
+
+
+              <th>
+
+                Ending
+
+                <br>
+
+                Loose PCS
+
+              </th>
+
+
+
+              <th>
+
+                Sold
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+            </tr>
+
+
+
+          </thead>
+
+
+
+
+
+          <tbody id="eggBody"></tbody>
+
+
+
+        </table>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- DRINK -->
+
+
+
+    <div class="inventory-section">
+
+
+
+      <div class="inventory-section-title">
+
+        Drinks Inventory
+
+      </div>
+
+
+
+
+
+      <div class="inventory-help">
+
+
+
+        1 box = 24 pieces.
+
+
+
+        Sold =
+
+        Beginning PCS +
+
+        Delivery PCS −
+
+        Ending PCS.
+
+
+
+      </div>
+
+
+
+
+
+      <div class="table-container">
+
+
+
+        <table>
+
+
+
+          <thead>
+
+
+
+            <tr>
+
+
+
+              <th>
+
+                Drink
+
+              </th>
+
+
+
+              <th>
+
+                Beginning
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                Boxes
+
+              </th>
+
+
+
+              <th>
+
+                Delivery
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Ending
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+              <th>
+
+                Sold
+
+                <br>
+
+                PCS
+
+              </th>
+
+
+
+            </tr>
+
+
+
+          </thead>
+
+
+
+
+
+          <tbody id="drinkBody"></tbody>
+
+
+
+        </table>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="inventory-section">
+
+      <div class="inventory-section-title">
+        Piece Stock Inventory — Lumpia / Kwek Kwek
+      </div>
+
+      <div class="inventory-help">
+        Stock is counted per piece.
+        <br>
+        Total / Used = Beginning PCS + Delivery PCS − Ending PCS.
+        <br>
+        Example: Beginning 24, Ending 15 = Total 9.
+        This is inventory usage only for now, not yet final sales.
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Stock</th>
+              <th>Beginning<br>PCS</th>
+              <th>Delivery<br>PCS</th>
+              <th>Ending<br>PCS</th>
+              <th>Total / Used<br>PCS</th>
+            </tr>
+          </thead>
+          <tbody id="pieceBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+
+
+      <button
+
+        class="primary"
+
+        onclick="saveInventoryData()"
+
+      >
+
+        Save Inventory
+
+      </button>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+
+
+
+
+<!-- ==================================================
+
+     SALES
+
+\================================================== -->
+
+
+
+<section
+
+  id="sales"
+
+  class="page"
+
+>
+
+
+
+  <div class="card">
+
+
+
+    <h2>
+
+      Sales Report
+
+    </h2>
+
+
+
+
+
+    <div class="daily-info">
+
+
+
+      <h3>
+
+        Daily Sales Information
+
+      </h3>
+
+
+
+
+
+      <div class="form-grid">
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Date
+
+          </label>
+
+
+
+          <input
+
+            type="date"
+
+            id="salesDate"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 1
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="salesStaff1"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 2
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="salesStaff2"
+
+          >
+
+
+
+        </div>
+
+
+
+
+
+        <div>
+
+
+
+          <label>
+
+            Staff 3
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="salesStaff3"
+
+          >
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="table-container">
+
+
+
+      <table>
+
+
+
+        <thead>
+
+
+
+          <tr>
+
+
+
+            <th>
+
+              Product
+
+            </th>
+
+
+
+            <th>
+
+              GCash
+
+            </th>
+
+
+
+            <th>
+
+              Grab
+
+            </th>
+
+
+
+            <th>
+
+              Price
+
+            </th>
+
+
+
+            <th>
+
+              Quantity
+
+            </th>
+
+
+
+            <th>
+
+              Amount
+
+            </th>
+
+
+
+          </tr>
+
+
+
+        </thead>
+
+
+
+
+
+        <tbody id="salesBody">
+
+
+
+          <tr>
+
+
+
+            <td
+
+              colspan="6"
+
+              class="loading"
+
+            >
+
+              Loading...
+
+            </td>
+
+
+
+          </tr>
+
+
+
+        </tbody>
+
+
+
+      </table>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="summary">
+
+
+
+
+
+      <div class="summary-row">
+
+
+
+        <span>
+
+          Gross Sales
+
+        </span>
+
+
+
+        <strong id="grossSales">
+
+          ₱0.00
+
+        </strong>
+
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-row">
+
+
+
+        <span>
+
+          Discount
+
+        </span>
+
+
+
+        <input
+
+          type="number"
+
+          id="discount"
+
+          value="0"
+
+          oninput="calculateTotals()"
+
+        >
+
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-row">
+
+
+
+        <span>
+
+          Expenses
+
+        </span>
+
+
+
+        <input
+
+          type="number"
+
+          id="expenses"
+
+          value="0"
+
+          oninput="calculateTotals()"
+
+        >
+
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-row net">
+
+
+
+        <span>
+
+          Net Sales
+
+        </span>
+
+
+
+        <strong id="netSales">
+
+          ₱0.00
+
+        </strong>
+
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-row">
+
+
+
+        <span>
+
+          Actual Count
+
+        </span>
+
+
+
+        <input
+
+          type="number"
+
+          id="actualCount"
+
+          value="0"
+
+          oninput="calculateTotals()"
+
+        >
+
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-row">
+
+
+
+        <span>
+
+          Over / Short
+
+        </span>
+
+
+
+        <strong id="overShort">
+
+          ₱0.00
+
+        </strong>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="actions">
+
+
+
+      <button
+
+        class="secondary"
+
+        onclick="window.print()"
+
+      >
+
+        Print
+
+      </button>
+
+
+
+
+
+      <button
+
+        class="primary"
+
+        onclick="saveSalesData()"
+
+      >
+
+        Save Daily Report
+
+      </button>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+
+
+
+
+<!-- ==================================================
+
+     REPORTS
+
+\================================================== -->
+
+
+
+<section
+
+  id="reports"
+
+  class="page"
+
+>
+
+
+
+  <div class="card">
+
+
+
+    <h2>
+
+      Previous Daily Reports
+
+    </h2>
+
+
+
+
+
+    <div class="table-container">
+
+
+
+      <table>
+
+
+
+        <thead>
+
+
+
+          <tr>
+
+
+
+            <th>Date</th>
+
+
+
+            <th>Staff 1</th>
+
+
+
+            <th>Staff 2</th>
+
+
+
+            <th>Staff 3</th>
+
+
+
+            <th>Gross</th>
+
+
+
+            <th>Discount</th>
+
+
+
+            <th>Expenses</th>
+
+
+
+            <th>Net</th>
+
+
+
+            <th>Actual</th>
+
+
+
+            <th>Over / Short</th>
+
+
+
+          </tr>
+
+
+
+        </thead>
+
+
+
+
+
+        <tbody id="reportsBody"></tbody>
+
+
+
+      </table>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+
+<script>
+
+
+
+
+
+// ======================================================
+
+// GLOBAL
+
+// ======================================================
+
+
+
+let inventoryProducts = [];
+
+
+
+let salesProducts = [];
+
+
+
+let previousInventory = {};
+
+
+
+
+
+// ======================================================
+
+// START
+
+// ======================================================
+
+
+
+document.addEventListener(
+
+  "DOMContentLoaded",
+
+  function() {
+
+
+
+    setToday();
+
+
+
+    loadInventoryProducts();
+
+
+
+    loadSalesProducts();
+
+
+
+  }
+
+);
+
+
+
+
+
+// ======================================================
+
+// DATE
+
+// ======================================================
+
+
+
+function setToday() {
+
+
+
+  const date =
+
+    new Date();
+
+
+
+
+
+  const today =
+
+    new Date(
+
+      date.getTime() -
+
+      date.getTimezoneOffset() * 60000
+
+    )
+
+      .toISOString()
+
+      .split("T")[0];
+
+
+
+
+
+  document
+
+    .getElementById("reportDate")
+
+    .value = today;
+
+
+
+
+
+  document
+
+    .getElementById("salesDate")
+
+    .value = today;
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// NAVIGATION
+
+// ======================================================
+
+
+
+function showPage(
+
+  pageId,
+
+  button
+
+) {
+
+
+
+  document
+
+    .querySelectorAll(".page")
+
+    .forEach(page => {
+
+
+
+      page.classList.remove(
+
+        "active"
+
+      );
+
+
+
+    });
+
+
+
+
+
+  document
+
+    .getElementById(pageId)
+
+    .classList.add(
+
+      "active"
+
+    );
+
+
+
+
+
+  document
+
+    .querySelectorAll("nav button")
+
+    .forEach(btn => {
+
+
+
+      btn.classList.remove(
+
+        "active"
+
+      );
+
+
+
+    });
+
+
+
+
+
+  button.classList.add(
+
+    "active"
+
+  );
+
+
+
+
+
+  if (pageId === "sales") {
+
+
+
+    syncDailyInformation();
+
+
+
+  }
+
+
+
+
+
+  if (pageId === "reports") {
+
+
+
+    loadReports();
+
+
+
+  }
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// DAILY INFO SYNC
+
+// ======================================================
+
+
+
+function syncDailyInformation() {
+
+
+
+  document
+
+    .getElementById("salesDate")
+
+    .value =
+
+    document
+
+      .getElementById("reportDate")
+
+      .value;
+
+
+
+
+
+  document
+
+    .getElementById("salesStaff1")
+
+    .value =
+
+    document
+
+      .getElementById("staff1")
+
+      .value;
+
+
+
+
+
+  document
+
+    .getElementById("salesStaff2")
+
+    .value =
+
+    document
+
+      .getElementById("staff2")
+
+      .value;
+
+
+
+
+
+  document
+
+    .getElementById("salesStaff3")
+
+    .value =
+
+    document
+
+      .getElementById("staff3")
+
+      .value;
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// LOAD INVENTORY
+
+// ======================================================
+
+
+
+function loadInventoryProducts() {
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(products) {
+
+
+
+        inventoryProducts =
+
+          products || [];
+
+
+
+
+
+        document
+
+          .getElementById(
+
+            "inventoryCount"
+
+          )
+
+          .textContent =
+
+          inventoryProducts.length;
+
+
+
+
+
+        loadPreviousInventory();
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .getInventoryProducts();
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// PREVIOUS INVENTORY
+
+// ======================================================
+
+
+
+function loadPreviousInventory() {
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(data) {
+
+
+
+        previousInventory =
+
+          data || {};
+
+
+
+
+
+        renderInventory();
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .getBeginningInventory();
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// RENDER INVENTORY
+
+// ======================================================
+
+
+
+function renderInventory() {
+
+
+
+  renderMeat();
+
+
+
+  renderTokwa();
+
+
+
+  renderEgg();
+
+
+
+  renderDrinks();
+
+
+
+
+  renderPieces();
+
+}
+
+
+
+
+
+// ======================================================
+
+// MEAT
+
+// ======================================================
+
+
+
+function renderMeat() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "meatBody"
+
+    );
+
+
+
+
+
+  const products =
+
+    inventoryProducts.filter(
+
+      product =>
+
+        product.inventoryType === "MEAT"
+
+    );
+
+
+
+
+
+  if (!products.length) {
+
+
+
+    body.innerHTML =
+
+      \`<tr>
+
+        <td colspan="9" class="loading">
+
+          No meat products found.
+
+        </td>
+
+      </tr>\`;
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  body.innerHTML =
+
+    products.map(product => {
+
+
+
+      const previous =
+
+        previousInventory[
+
+          product.id
+
+        ] || {};
+
+
+
+
+
+      const beginningRaw =
+
+        Number(
+
+          previous.endingRaw
+
+        ) || 0;
+
+
+
+
+
+      const beginningCooked =
+
+        Number(
+
+          previous.endingCooked
+
+        ) || 0;
+
+
+
+
+
+      return \`
+
+
+
+        <tr
+
+          class="inventory-row"
+
+          data-id="${product.id}"
+
+          data-name="${escapeHtml(product.name)}"
+
+          data-type="MEAT"
+
+        >
+
+
+
+          <td>
+
+
+
+            <strong>
+
+              ${escapeHtml(product.name)}
+
+            </strong>
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningRaw"
+
+              type="number"
+
+              step="0.01"
+
+              value="${beginningRaw}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="delivery"
+
+              type="number"
+
+              step="0.01"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="outFreezer"
+
+              type="number"
+
+              step="0.01"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result rawRemaining">
+
+            ${formatNumber(beginningRaw)} kg
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningCooked"
+
+              type="number"
+
+              step="0.01"
+
+              value="${beginningCooked}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="cookedToday"
+
+              type="number"
+
+              step="0.01"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="endingCooked"
+
+              type="number"
+
+              step="0.01"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result soldUsed">
+
+            ${formatNumber(beginningCooked)} g
+
+          </td>
+
+
+
+        </tr>
+
+
+
+      \`;
+
+
+
+    }).join("");
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// TOKWA
+
+// ======================================================
+
+
+
+function renderTokwa() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "tokwaBody"
+
+    );
+
+
+
+
+
+  const products =
+
+    inventoryProducts.filter(
+
+      product =>
+
+        product.inventoryType === "TOKWA"
+
+    );
+
+
+
+
+
+  if (!products.length) {
+
+
+
+    body.innerHTML =
+
+      \`<tr>
+
+        <td colspan="10" class="loading">
+
+          No Tokwa product found.
+
+        </td>
+
+      </tr>\`;
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  body.innerHTML =
+
+    products.map(product => {
+
+
+
+      const previous =
+
+        previousInventory[
+
+          product.id
+
+        ] || {};
+
+
+
+
+
+      const beginningRaw =
+
+        Number(
+
+          previous.endingRaw
+
+        ) || 0;
+
+
+
+
+
+      const beginningCooked =
+
+        Number(
+
+          previous.endingCooked
+
+        ) || 0;
+
+
+
+
+
+      return \`
+
+
+
+        <tr
+
+          class="inventory-row"
+
+          data-id="${product.id}"
+
+          data-name="${escapeHtml(product.name)}"
+
+          data-type="TOKWA"
+
+        >
+
+
+
+          <td>
+
+            <strong>
+
+              ${escapeHtml(product.name)}
+
+            </strong>
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningRaw"
+
+              type="number"
+
+              value="${beginningRaw}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="delivery"
+
+              type="number"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result deliveryConverted">
+
+            0 pcs
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="outFreezer"
+
+              type="number"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result rawRemaining">
+
+            ${formatNumber(beginningRaw)} pcs
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningCooked"
+
+              type="number"
+
+              value="${beginningCooked}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="cookedToday"
+
+              type="number"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="endingCooked"
+
+              type="number"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result soldUsed">
+
+            ${formatNumber(beginningCooked)} g
+
+          </td>
+
+
+
+        </tr>
+
+
+
+      \`;
+
+
+
+    }).join("");
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// EGG
+
+// ======================================================
+
+
+
+function renderEgg() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "eggBody"
+
+    );
+
+
+
+
+
+  const products =
+
+    inventoryProducts.filter(
+
+      product =>
+
+        product.inventoryType === "EGG"
+
+    );
+
+
+
+
+
+  if (!products.length) {
+
+
+
+    body.innerHTML =
+
+      \`<tr>
+
+        <td colspan="8" class="loading">
+
+          No Egg product found.
+
+        </td>
+
+      </tr>\`;
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  body.innerHTML =
+
+    products.map(product => {
+
+
+
+      const previous =
+
+        previousInventory[
+
+          product.id
+
+        ] || {};
+
+
+
+
+
+      const beginningTray =
+
+        Number(
+
+          previous.endingRaw
+
+        ) || 0;
+
+
+
+
+
+      const beginningLoose =
+
+        Number(
+
+          previous.endingLoose
+
+        ) || 0;
+
+
+
+
+
+      return \`
+
+
+
+        <tr
+
+          class="inventory-row"
+
+          data-id="${product.id}"
+
+          data-name="${escapeHtml(product.name)}"
+
+          data-type="EGG"
+
+        >
+
+
+
+          <td>
+
+            <strong>
+
+              ${escapeHtml(product.name)}
+
+            </strong>
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningRaw"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="${beginningTray}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningLoose"
+
+              type="number"
+
+              min="0"
+
+              max="29"
+
+              step="1"
+
+              value="${beginningLoose}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="delivery"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result deliveryConverted">
+
+            0 pcs
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="endingRaw"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="endingLoose"
+
+              type="number"
+
+              min="0"
+
+              max="29"
+
+              step="1"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result soldUsed">
+
+            0 pcs
+
+          </td>
+
+
+
+        </tr>
+
+
+
+      \`;
+
+
+
+    }).join("");
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// DRINKS
+
+// ======================================================
+
+
+
+function renderDrinks() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "drinkBody"
+
+    );
+
+
+
+
+
+  const products =
+
+    inventoryProducts.filter(
+
+      product =>
+
+        product.inventoryType === "DRINK"
+
+    );
+
+
+
+
+
+  if (!products.length) {
+
+
+
+    body.innerHTML =
+
+      \`<tr>
+
+        <td colspan="6" class="loading">
+
+          No drinks found.
+
+        </td>
+
+      </tr>\`;
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  body.innerHTML =
+
+    products.map(product => {
+
+
+
+      const previous =
+
+        previousInventory[
+
+          product.id
+
+        ] || {};
+
+
+
+
+
+      const beginning =
+
+        Number(
+
+          previous.endingRaw
+
+        ) || 0;
+
+
+
+
+
+      return \`
+
+
+
+        <tr
+
+          class="inventory-row"
+
+          data-id="${product.id}"
+
+          data-name="${escapeHtml(product.name)}"
+
+          data-type="DRINK"
+
+        >
+
+
+
+          <td>
+
+            <strong>
+
+              ${escapeHtml(product.name)}
+
+            </strong>
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="beginningRaw"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="${beginning}"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="delivery"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result deliveryConverted">
+
+            0 pcs
+
+          </td>
+
+
+
+
+
+          <td>
+
+
+
+            <input
+
+              class="endingRaw"
+
+              type="number"
+
+              min="0"
+
+              step="1"
+
+              value="0"
+
+              oninput="calculateInventoryRow(this)"
+
+            >
+
+
+
+          </td>
+
+
+
+
+
+          <td class="result soldUsed">
+
+            ${formatNumber(beginning)} pcs
+
+          </td>
+
+
+
+        </tr>
+
+
+
+      \`;
+
+
+
+    }).join("");
+
+
+
+}
+
+
+
+
+
+// ======================================================
+// LUMPIA / KWEK KWEK — PIECE STOCKS
+// ======================================================
+
+function renderPieces() {
+
+  const body = document.getElementById("pieceBody");
+
+  const products =
+    inventoryProducts.filter(
+      product => product.inventoryType === "PIECE"
+    );
+
+  if (!products.length) {
+    body.innerHTML =
+      `<tr>
+        <td colspan="5" class="loading">
+          No Lumpia / Kwek Kwek products found.
+        </td>
+      </tr>`;
+    return;
+  }
+
+  body.innerHTML =
+    products.map(product => {
+
+      const previous =
+        previousInventory[product.id] || {};
+
+      const beginning =
+        Number(previous.endingRaw) || 0;
+
+      return `
+        <tr
+          class="inventory-row"
+          data-id="${product.id}"
+          data-name="${escapeHtml(product.name)}"
+          data-type="PIECE"
+        >
+          <td>
+            <strong>${escapeHtml(product.name)}</strong>
+          </td>
+
+          <td>
+            <input
+              class="beginningRaw"
+              type="number"
+              min="0"
+              step="1"
+              value="${beginning}"
+              oninput="calculateInventoryRow(this)"
+            >
+          </td>
+
+          <td>
+            <input
+              class="delivery"
+              type="number"
+              min="0"
+              step="1"
+              value="0"
+              oninput="calculateInventoryRow(this)"
+            >
+          </td>
+
+          <td>
+            <input
+              class="endingRaw"
+              type="number"
+              min="0"
+              step="1"
+              value="0"
+              oninput="calculateInventoryRow(this)"
+            >
+          </td>
+
+          <td class="result soldUsed">
+            ${formatNumber(beginning)} pcs
+          </td>
+        </tr>
+      `;
+
+    }).join("");
+
+}
+
+
+// ======================================================
+
+// CALCULATE INVENTORY ROW
+
+// ======================================================
+
+
+
+function calculateInventoryRow(element) {
+
+
+
+  const row =
+
+    element.closest(
+
+      ".inventory-row"
+
+    );
+
+
+
+
+
+  const type =
+
+    row.dataset.type;
+
+
+
+
+
+  const beginningRaw =
+
+    inputValue(
+
+      row,
+
+      ".beginningRaw"
+
+    );
+
+
+
+
+
+  const beginningLoose =
+
+    inputValue(
+
+      row,
+
+      ".beginningLoose"
+
+    );
+
+
+
+
+
+  const delivery =
+
+    inputValue(
+
+      row,
+
+      ".delivery"
+
+    );
+
+
+
+
+
+  const outFreezer =
+
+    inputValue(
+
+      row,
+
+      ".outFreezer"
+
+    );
+
+
+
+
+
+  const beginningCooked =
+
+    inputValue(
+
+      row,
+
+      ".beginningCooked"
+
+    );
+
+
+
+
+
+  const cookedToday =
+
+    inputValue(
+
+      row,
+
+      ".cookedToday"
+
+    );
+
+
+
+
+
+  const endingCooked =
+
+    inputValue(
+
+      row,
+
+      ".endingCooked"
+
+    );
+
+
+
+
+
+  const endingRaw =
+
+    inputValue(
+
+      row,
+
+      ".endingRaw"
+
+    );
+
+
+
+
+
+  const endingLoose =
+
+    inputValue(
+
+      row,
+
+      ".endingLoose"
+
+    );
+
+
+
+
+
+  let deliveryConverted = 0;
+
+
+
+  let rawRemaining = 0;
+
+
+
+  let soldUsed = 0;
+
+
+
+
+
+  // MEAT
+
+
+
+  if (type === "MEAT") {
+
+
+
+    rawRemaining =
+
+      beginningRaw +
+
+      delivery -
+
+      outFreezer;
+
+
+
+
+
+    soldUsed =
+
+      beginningCooked +
+
+      cookedToday -
+
+      endingCooked;
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".rawRemaining",
+
+      formatNumber(rawRemaining) +
+
+      " kg"
+
+    );
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".soldUsed",
+
+      formatNumber(soldUsed) +
+
+      " g"
+
+    );
+
+
+
+  }
+
+
+
+
+
+  // TOKWA
+
+
+
+  else if (type === "TOKWA") {
+
+
+
+    deliveryConverted =
+
+      delivery * 10;
+
+
+
+
+
+    rawRemaining =
+
+      beginningRaw +
+
+      deliveryConverted -
+
+      outFreezer;
+
+
+
+
+
+    soldUsed =
+
+      beginningCooked +
+
+      cookedToday -
+
+      endingCooked;
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".deliveryConverted",
+
+      formatNumber(
+
+        deliveryConverted
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".rawRemaining",
+
+      formatNumber(
+
+        rawRemaining
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".soldUsed",
+
+      formatNumber(
+
+        soldUsed
+
+      ) +
+
+      " g"
+
+    );
+
+
+
+  }
+
+
+
+
+
+  // EGG
+
+
+
+  else if (type === "EGG") {
+
+
+
+    deliveryConverted =
+
+      delivery * 30;
+
+
+
+
+
+    const beginningTotal =
+
+      (beginningRaw * 30) +
+
+      beginningLoose;
+
+
+
+
+
+    const endingTotal =
+
+      (endingRaw * 30) +
+
+      endingLoose;
+
+
+
+
+
+    soldUsed =
+
+      beginningTotal +
+
+      deliveryConverted -
+
+      endingTotal;
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".deliveryConverted",
+
+      formatNumber(
+
+        deliveryConverted
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".soldUsed",
+
+      formatNumber(
+
+        soldUsed
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+  }
+
+
+
+
+
+  // DRINK
+
+
+
+  else if (type === "DRINK") {
+
+
+
+    deliveryConverted =
+
+      delivery * 24;
+
+
+
+
+
+    soldUsed =
+
+      beginningRaw +
+
+      deliveryConverted -
+
+      endingRaw;
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".deliveryConverted",
+
+      formatNumber(
+
+        deliveryConverted
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+
+
+    setResult(
+
+      row,
+
+      ".soldUsed",
+
+      formatNumber(
+
+        soldUsed
+
+      ) +
+
+      " pcs"
+
+    );
+
+
+
+  }
+
+
+
+
+
+  // LUMPIA / KWEK KWEK
+  else if (type === "PIECE") {
+
+    soldUsed =
+      beginningRaw +
+      delivery -
+      endingRaw;
+
+    setResult(
+      row,
+      ".soldUsed",
+      formatNumber(soldUsed) + " pcs"
+    );
+
+  }
+
+}
+
+
+
+
+
+// ======================================================
+
+// INPUT VALUE
+
+// ======================================================
+
+
+
+function inputValue(
+
+  row,
+
+  selector
+
+) {
+
+
+
+  const input =
+
+    row.querySelector(
+
+      selector
+
+    );
+
+
+
+
+
+  if (!input) {
+
+    return 0;
+
+  }
+
+
+
+
+
+  return Number(
+
+    input.value
+
+  ) || 0;
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// RESULT
+
+// ======================================================
+
+
+
+function setResult(
+
+  row,
+
+  selector,
+
+  value
+
+) {
+
+
+
+  const element =
+
+    row.querySelector(
+
+      selector
+
+    );
+
+
+
+
+
+  if (element) {
+
+
+
+    element.textContent =
+
+      value;
+
+
+
+  }
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// SAVE INVENTORY
+
+// ======================================================
+
+
+
+function saveInventoryData() {
+
+
+
+  const date =
+
+    document
+
+      .getElementById(
+
+        "reportDate"
+
+      )
+
+      .value;
+
+
+
+
+
+  const staff1 =
+
+    document
+
+      .getElementById(
+
+        "staff1"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  const staff2 =
+
+    document
+
+      .getElementById(
+
+        "staff2"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  const staff3 =
+
+    document
+
+      .getElementById(
+
+        "staff3"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  if (!date) {
+
+
+
+    showMessage(
+
+      "Please select a date.",
+
+      "error"
+
+    );
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  if (!staff1) {
+
+
+
+    showMessage(
+
+      "Please enter Staff 1.",
+
+      "error"
+
+    );
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  const rows =
+
+    document.querySelectorAll(
+
+      ".inventory-row"
+
+    );
+
+
+
+
+
+  const items = [];
+
+
+
+
+
+  rows.forEach(row => {
+
+
+
+    items.push({
+
+
+
+      id:
+
+        row.dataset.id,
+
+
+
+      name:
+
+        row.dataset.name,
+
+
+
+      inventoryType:
+
+        row.dataset.type,
+
+
+
+      beginningRaw:
+
+        inputValue(
+
+          row,
+
+          ".beginningRaw"
+
+        ),
+
+
+
+      beginningLoose:
+
+        inputValue(
+
+          row,
+
+          ".beginningLoose"
+
+        ),
+
+
+
+      delivery:
+
+        inputValue(
+
+          row,
+
+          ".delivery"
+
+        ),
+
+
+
+      outFreezer:
+
+        inputValue(
+
+          row,
+
+          ".outFreezer"
+
+        ),
+
+
+
+      beginningCooked:
+
+        inputValue(
+
+          row,
+
+          ".beginningCooked"
+
+        ),
+
+
+
+      cookedToday:
+
+        inputValue(
+
+          row,
+
+          ".cookedToday"
+
+        ),
+
+
+
+      endingCooked:
+
+        inputValue(
+
+          row,
+
+          ".endingCooked"
+
+        ),
+
+
+
+      endingRaw:
+
+        inputValue(
+
+          row,
+
+          ".endingRaw"
+
+        ),
+
+
+
+      endingLoose:
+
+        inputValue(
+
+          row,
+
+          ".endingLoose"
+
+        )
+
+
+
+    });
+
+
+
+  });
+
+
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(result) {
+
+
+
+        showMessage(
+
+          result.message,
+
+          "success"
+
+        );
+
+
+
+
+
+        loadPreviousInventory();
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .saveInventory({
+
+
+
+      date: date,
+
+
+
+      staff1: staff1,
+
+
+
+      staff2: staff2,
+
+
+
+      staff3: staff3,
+
+
+
+      items: items
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// LOAD SALES PRODUCTS
+
+// ======================================================
+
+
+
+function loadSalesProducts() {
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(products) {
+
+
+
+        salesProducts =
+
+          products || [];
+
+
+
+
+
+        renderSales();
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .getSalesProducts();
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// RENDER SALES
+
+// ======================================================
+
+
+
+function renderSales() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "salesBody"
+
+    );
+
+
+
+
+
+  if (!salesProducts.length) {
+
+
+
+    body.innerHTML =
+
+      \`<tr>
+
+        <td colspan="6" class="loading">
+
+          No sales products found.
+
+        </td>
+
+      </tr>\`;
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  body.innerHTML =
+
+    salesProducts
+
+      .map(
+
+        (product, index) => {
+
+
+
+          return \`
+
+
+
+            <tr>
+
+
+
+              <td>
+
+                ${escapeHtml(
+
+                  product.name
+
+                )}
+
+              </td>
+
+
+
+
+
+              <td>
+
+
+
+                <input
+
+                  type="number"
+
+                  class="sale-gcash"
+
+                  data-index="${index}"
+
+                  value="0"
+
+                >
+
+
+
+              </td>
+
+
+
+
+
+              <td>
+
+
+
+                <input
+
+                  type="number"
+
+                  class="sale-grab"
+
+                  data-index="${index}"
+
+                  value="0"
+
+                >
+
+
+
+              </td>
+
+
+
+
+
+              <td class="number">
+
+
+
+                ${currency(
+
+                  product.price
+
+                )}
+
+
+
+              </td>
+
+
+
+
+
+              <td>
+
+
+
+                <input
+
+                  type="number"
+
+                  class="sale-qty"
+
+                  data-index="${index}"
+
+                  value="0"
+
+                  oninput="calculateTotals()"
+
+                >
+
+
+
+              </td>
+
+
+
+
+
+              <td
+
+                class="number"
+
+                id="saleAmount-${index}"
+
+              >
+
+
+
+                ₱0.00
+
+
+
+              </td>
+
+
+
+            </tr>
+
+
+
+          \`;
+
+
+
+        }
+
+      )
+
+      .join("");
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// CALCULATE SALES
+
+// ======================================================
+
+
+
+function calculateTotals() {
+
+
+
+  let gross = 0;
+
+
+
+
+
+  salesProducts
+
+    .forEach(
+
+      (product, index) => {
+
+
+
+        const quantityInput =
+
+          document.querySelector(
+
+            \`.sale-qty[data-index="${index}"]\`
+
+          );
+
+
+
+
+
+        const quantity =
+
+          Number(
+
+            quantityInput
+
+              ? quantityInput.value
+
+              : 0
+
+          ) || 0;
+
+
+
+
+
+        const amount =
+
+          quantity *
+
+          product.price;
+
+
+
+
+
+        gross += amount;
+
+
+
+
+
+        const amountElement =
+
+          document.getElementById(
+
+            \`saleAmount-${index}\`
+
+          );
+
+
+
+
+
+        if (amountElement) {
+
+
+
+          amountElement.textContent =
+
+            currency(amount);
+
+
+
+        }
+
+
+
+      }
+
+    );
+
+
+
+
+
+  const discount =
+
+    Number(
+
+      document
+
+        .getElementById(
+
+          "discount"
+
+        )
+
+        .value
+
+    ) || 0;
+
+
+
+
+
+  const expenses =
+
+    Number(
+
+      document
+
+        .getElementById(
+
+          "expenses"
+
+        )
+
+        .value
+
+    ) || 0;
+
+
+
+
+
+  const actual =
+
+    Number(
+
+      document
+
+        .getElementById(
+
+          "actualCount"
+
+        )
+
+        .value
+
+    ) || 0;
+
+
+
+
+
+  const net =
+
+    gross -
+
+    discount -
+
+    expenses;
+
+
+
+
+
+  const difference =
+
+    actual -
+
+    net;
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "grossSales"
+
+    )
+
+    .textContent =
+
+    currency(gross);
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "netSales"
+
+    )
+
+    .textContent =
+
+    currency(net);
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "overShort"
+
+    )
+
+    .textContent =
+
+    currency(difference);
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "dashboardGross"
+
+    )
+
+    .textContent =
+
+    currency(gross);
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "dashboardNet"
+
+    )
+
+    .textContent =
+
+    currency(net);
+
+
+
+
+
+  document
+
+    .getElementById(
+
+      "dashboardOverShort"
+
+    )
+
+    .textContent =
+
+    currency(difference);
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// SAVE SALES
+
+// ======================================================
+
+
+
+function saveSalesData() {
+
+
+
+  const date =
+
+    document
+
+      .getElementById(
+
+        "salesDate"
+
+      )
+
+      .value;
+
+
+
+
+
+  const staff1 =
+
+    document
+
+      .getElementById(
+
+        "salesStaff1"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  const staff2 =
+
+    document
+
+      .getElementById(
+
+        "salesStaff2"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  const staff3 =
+
+    document
+
+      .getElementById(
+
+        "salesStaff3"
+
+      )
+
+      .value
+
+      .trim();
+
+
+
+
+
+  if (!date) {
+
+
+
+    showMessage(
+
+      "Please select a date.",
+
+      "error"
+
+    );
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  if (!staff1) {
+
+
+
+    showMessage(
+
+      "Please enter Staff 1.",
+
+      "error"
+
+    );
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+  const sales =
+
+    salesProducts.map(
+
+      (product, index) => {
+
+
+
+        const gcash =
+
+          document.querySelector(
+
+            \`.sale-gcash[data-index="${index}"]\`
+
+          );
+
+
+
+
+
+        const grab =
+
+          document.querySelector(
+
+            \`.sale-grab[data-index="${index}"]\`
+
+          );
+
+
+
+
+
+        const qty =
+
+          document.querySelector(
+
+            \`.sale-qty[data-index="${index}"]\`
+
+          );
+
+
+
+
+
+        return {
+
+
+
+          id:
+
+            product.id,
+
+
+
+          name:
+
+            product.name,
+
+
+
+          gcash:
+
+            Number(
+
+              gcash
+
+                ? gcash.value
+
+                : 0
+
+            ) || 0,
+
+
+
+          grab:
+
+            Number(
+
+              grab
+
+                ? grab.value
+
+                : 0
+
+            ) || 0,
+
+
+
+          price:
+
+            product.price,
+
+
+
+          quantity:
+
+            Number(
+
+              qty
+
+                ? qty.value
+
+                : 0
+
+            ) || 0
+
+
+
+        };
+
+
+
+      }
+
+    );
+
+
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(result) {
+
+
+
+        showMessage(
+
+          result.message,
+
+          "success"
+
+        );
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .saveSalesReport({
+
+
+
+      date:
+
+        date,
+
+
+
+      staff1:
+
+        staff1,
+
+
+
+      staff2:
+
+        staff2,
+
+
+
+      staff3:
+
+        staff3,
+
+
+
+      discount:
+
+        Number(
+
+          document
+
+            .getElementById(
+
+              "discount"
+
+            )
+
+            .value
+
+        ) || 0,
+
+
+
+      expenses:
+
+        Number(
+
+          document
+
+            .getElementById(
+
+              "expenses"
+
+            )
+
+            .value
+
+        ) || 0,
+
+
+
+      actualCount:
+
+        Number(
+
+          document
+
+            .getElementById(
+
+              "actualCount"
+
+            )
+
+            .value
+
+        ) || 0,
+
+
+
+      sales:
+
+        sales
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// REPORTS
+
+// ======================================================
+
+
+
+function loadReports() {
+
+
+
+  const body =
+
+    document.getElementById(
+
+      "reportsBody"
+
+    );
+
+
+
+
+
+  body.innerHTML =
+
+    \`<tr>
+
+      <td colspan="10" class="loading">
+
+        Loading reports...
+
+      </td>
+
+    </tr>\`;
+
+
+
+
+
+  google.script.run
+
+
+
+    .withSuccessHandler(
+
+      function(reports) {
+
+
+
+        if (
+
+          !reports ||
+
+          !reports.length
+
+        ) {
+
+
+
+          body.innerHTML =
+
+            \`<tr>
+
+              <td colspan="10" class="loading">
+
+                No reports yet.
+
+              </td>
+
+            </tr>\`;
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+        body.innerHTML =
+
+          reports.map(report => {
+
+
+
+            return \`
+
+
+
+              <tr>
+
+
+
+                <td>
+
+                  ${escapeHtml(
+
+                    report.date
+
+                  )}
+
+                </td>
+
+
+
+                <td>
+
+                  ${escapeHtml(
+
+                    report.staff1
+
+                  )}
+
+                </td>
+
+
+
+                <td>
+
+                  ${escapeHtml(
+
+                    report.staff2
+
+                  )}
+
+                </td>
+
+
+
+                <td>
+
+                  ${escapeHtml(
+
+                    report.staff3
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.gross
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.discount
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.expenses
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.net
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.actual
+
+                  )}
+
+                </td>
+
+
+
+                <td class="number">
+
+                  ${currency(
+
+                    report.overShort
+
+                  )}
+
+                </td>
+
+
+
+              </tr>
+
+
+
+            \`;
+
+
+
+          }).join("");
+
+
+
+      }
+
+    )
+
+
+
+    .withFailureHandler(
+
+      showError
+
+    )
+
+
+
+    .getReports();
+
+
+
+}
+
+
+
+
+
+// ======================================================
+
+// HELPERS
+
+// ======================================================
+
+
+
+function currency(value) {
+
+
+
+  return "₱" +
+
+    Number(value || 0)
+
+      .toLocaleString(
+
+        "en-PH",
+
+        {
+
+          minimumFractionDigits: 2,
+
+          maximumFractionDigits: 2
+
+        }
+
+      );
+
+
+
+}
+
+
+
+
+
+function formatNumber(value) {
+
+
+
+  return Number(value || 0)
+
+    .toLocaleString(
+
+      "en-PH",
+
+      {
+
+        maximumFractionDigits: 2
+
+      }
+
+    );
+
+
+
+}
+
+
+
+
+
+function showMessage(
+
+  message,
+
+  type
+
+) {
+
+
+
+  const box =
+
+    document.getElementById(
+
+      "message"
+
+    );
+
+
+
+
+
+  box.textContent =
+
+    message;
+
+
+
+
+
+  box.className =
+
+    \`message ${type}\`;
+
+
+
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+
+
+
+
+  setTimeout(
+
+    function() {
+
+
+
+      box.className =
+
+        "message";
+
+
+
+    },
+
+    4000
+
+  );
+
+
+
+}
+
+
+
+
+
+function showError(error) {
+
+
+
+  console.error(error);
+
+
+
+
+
+  showMessage(
+
+    error &&
+
+    error.message
+
+      ? error.message
+
+      : "Something went wrong.",
+
+    "error"
+
+  );
+
+
+
+}
+
+
+
+
+
+function escapeHtml(value) {
+
+
+
+  return String(
+
+    value ?? ""
+
+  )
+
+
+
+    .replaceAll(
+
+      "&",
+
+      "&amp;"
+
+    )
+
+
+
+    .replaceAll(
+
+      "<",
+
+      "&lt;"
+
+    )
+
+
+
+    .replaceAll(
+
+      ">",
+
+      "&gt;"
+
+    )
+
+
+
+    .replaceAll(
+
+      '"',
+
+      "&quot;"
+
+    )
+
+
+
+    .replaceAll(
+
+      "'",
+
+      "&#039;"
+
+    );
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+
+
+
+</html>
