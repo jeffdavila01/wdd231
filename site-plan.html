@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Site Plan | Casil Shots Photography</title>
+
+  <meta
+    name="description"
+    content="Website plan for Casil Shots Photography, including its purpose, visitor scenarios, colors, typography, and wireframes."
+  >
+
+  <meta name="author" content="Jeffrey Davila">
+
+  <style>
+    :root {
+      --primary: #193549;
+      --accent: #805329;
+      --background: #faf7f2;
+      --surface: #ffffff;
+      --text: #24333d;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    header {
+      padding: 2.5rem 1rem;
+      background: var(--primary);
+      color: var(--surface);
+      text-align: center;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 6vw, 2.7rem);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.6rem;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    main {
+      width: min(960px, calc(100% - 2rem));
+      margin: 2rem auto;
+    }
+
+    main > section {
+      margin-bottom: 1.5rem;
+      padding: clamp(1rem, 4vw, 2rem);
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    li + li {
+      margin-top: 0.65rem;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .color-card {
+      overflow: hidden;
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+    }
+
+    .swatch {
+      min-height: 85px;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    .swatch-primary {
+      background: var(--primary);
+      color: var(--surface);
+    }
+
+    .swatch-accent {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .swatch-background {
+      background: var(--background);
+      color: var(--text);
+    }
+
+    .swatch-surface {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .swatch-text {
+      background: var(--text);
+      color: var(--surface);
+    }
+
+    .color-details {
+      padding: 1rem;
+    }
+
+    .color-details h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .color-details p {
+      margin: 0;
+    }
+
+    .heading-example {
+      color: var(--primary);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+    }
+
+    .body-example {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wireframe-note {
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+      background: var(--background);
+    }
+
+    figure {
+      margin: 1rem 0 2rem;
+    }
+
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-inline: auto;
+      border: 1px solid var(--primary);
+    }
+
+    figcaption {
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    footer {
+      padding: 1.5rem 1rem;
+      background: var(--primary);
+      color: var(--surface);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Casil Shots Photography Site Plan</h1>
+    <p>Jeffrey Davila | WDD 231</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="site-name">
+      <h2 id="site-name">1. Site Name</h2>
+
+      <p><strong>Casil Shots Photography</strong></p>
+
+      <p>
+        This name identifies the photography business and clearly
+        communicates the service it provides. The word “Shots” connects
+        the brand with capturing photographs and memorable moments.
+      </p>
+    </section>
+
+    <section aria-labelledby="site-purpose">
+      <h2 id="site-purpose">2. Site Purpose</h2>
+
+      <p>
+        The website will introduce Casil Shots Photography, showcase
+        sample photographs, and help potential clients explore
+        photography services for weddings, birthdays, and portraits.
+        Visitors will be able to filter photographs by category,
+        compare package details, and complete an inquiry form.
+      </p>
+
+      <h3>Target Audience</h3>
+
+      <p>
+        Individuals, couples, and families looking for photography
+        services in Navotas City and nearby areas.
+      </p>
+
+      <h3>Planned Website Pages</h3>
+
+      <ul>
+        <li>
+          <strong>Home:</strong>
+          Business introduction, featured photographs, a brief overview
+          of services, and links to the gallery and inquiry form.
+        </li>
+
+        <li>
+          <strong>Gallery:</strong>
+          A collection of photographs that visitors can filter by
+          weddings, birthdays, and portraits.
+        </li>
+
+        <li>
+          <strong>Services &amp; Contact:</strong>
+          Photography packages, service details, contact information,
+          and a form for sending an inquiry.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="scenarios">
+      <h2 id="scenarios">3. Visitor Scenarios</h2>
+
+      <ol>
+        <li>
+          Where can I see examples of wedding and birthday photographs
+          taken by Casil Shots?
+        </li>
+
+        <li>
+          What photography packages are available, and what does each
+          package include?
+        </li>
+
+        <li>
+          How can I contact the photographer to ask about availability
+          for my event?
+        </li>
+
+        <li>
+          Can I view only portrait photographs without browsing
+          the entire gallery?
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="colors">
+      <h2 id="colors">4. Color Scheme</h2>
+
+      <p>
+        The website will use navy, warm brown, ivory, white, and
+        dark slate. These colors will provide a consistent appearance
+        while allowing the photographs to remain the main focus.
+      </p>
+
+      <div class="palette">
+        <article class="color-card">
+          <div class="swatch swatch-primary">#193549</div>
+
+          <div class="color-details">
+            <h3>Navy</h3>
+            <p>
+              Used for the header, footer, main headings,
+              and primary buttons.
+            </p>
+          </div>
+        </article>
+
+        <article class="color-card">
+          <div class="swatch swatch-accent">#805329</div>
+
+          <div class="color-details">
+            <h3>Warm Brown</h3>
+            <p>
+              Used for subheadings, links, and decorative accents.
+            </p>
+          </div>
+        </article>
+
+        <article class="color-card">
+          <div class="swatch swatch-background">#FAF7F2</div>
+
+          <div class="color-details">
+            <h3>Ivory</h3>
+            <p>
+              Used for the main page background and supporting sections.
+            </p>
+          </div>
+        </article>
+
+        <article class="color-card">
+          <div class="swatch swatch-surface">#FFFFFF</div>
+
+          <div class="color-details">
+            <h3>White</h3>
+            <p>
+              Used for content cards and text on dark backgrounds.
+            </p>
+          </div>
+        </article>
+
+        <article class="color-card">
+          <div class="swatch swatch-text">#24333D</div>
+
+          <div class="color-details">
+            <h3>Dark Slate</h3>
+            <p>
+              Used for paragraphs, lists, and form labels.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="typography">
+      <h2 id="typography">5. Typography</h2>
+
+      <h3>Georgia — Headings</h3>
+
+      <p>
+        Georgia will be used for page titles and section headings.
+        Its serif appearance will give the photography website
+        a classic style.
+      </p>
+
+      <p class="heading-example">
+        Capturing Moments That Matter
+      </p>
+
+      <h3>Arial — Body Text and Controls</h3>
+
+      <p>
+        Arial will be used for paragraphs, navigation, buttons,
+        and form fields because it is easy to read on small
+        and large screens.
+      </p>
+
+      <p class="body-example">
+        Explore our photographs and find a photography package
+        for your next celebration.
+      </p>
+    </section>
+
+    <section aria-labelledby="wireframes">
+      <h2 id="wireframes">6. Home Page Wireframes</h2>
+
+      <p>
+        The wireframes will show the home page layout for mobile
+        and desktop screens. They will focus on content placement,
+        navigation, and the main call to action.
+      </p>
+
+      <h3>Mobile Wireframe</h3>
+
+      <p class="wireframe-note">
+        Pending: Add my original black-and-white mobile
+        home page sketch here.
+      </p>
+
+      <!--
+        After creating your own mobile sketch:
+        1. Save it as images/site-plan-mobile.webp.
+        2. Replace the pending paragraph above with this figure.
+        3. Remove the comment markers around the figure.
+
+        <figure>
+          <img
+            src="images/site-plan-mobile.webp"
+            alt="Hand-drawn mobile home page wireframe for Casil Shots Photography"
+          >
+          <figcaption>Mobile home page wireframe.</figcaption>
+        </figure>
+      -->
+
+      <h3>Desktop Wireframe</h3>
+
+      <p class="wireframe-note">
+        Pending: Add my original black-and-white desktop
+        home page sketch here.
+      </p>
+
+      <!--
+        After creating your own desktop sketch:
+        1. Save it as images/site-plan-desktop.webp.
+        2. Replace the pending paragraph above with this figure.
+        3. Remove the comment markers around the figure.
+
+        <figure>
+          <img
+            src="images/site-plan-desktop.webp"
+            alt="Hand-drawn desktop home page wireframe for Casil Shots Photography"
+          >
+          <figcaption>Desktop home page wireframe.</figcaption>
+        </figure>
+      -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Jeffrey Davila | Casil Shots Photography | WDD 231</p>
+  </footer>
+</body>
+</html>
