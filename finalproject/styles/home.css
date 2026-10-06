@@ -1,0 +1,22 @@
+/* =========================================================
+   HOME PAGE
+   Casil Shots Photography
+   ========================================================= */
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.brand-name {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.hero,
+.hero-copy,
+.hero-panel,
+.service-card {
+  min-width: 0;
+}
