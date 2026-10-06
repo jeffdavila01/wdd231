@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Photo Gallery | Casil Shots Photography</title>
+
+  <meta name="description"
+    content="Browse the Casil Shots photography gallery by weddings, birthdays, and portraits, and explore details about each photograph.">
+  <meta name="author" content="Jeffrey Davila">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casil Shots Photography">
+  <meta property="og:title" content="Photo Gallery | Casil Shots Photography">
+  <meta property="og:description" content="Explore wedding, birthday, and portrait photography.">
+  <meta property="og:url" content="https://jeffdavila01.github.io/wdd231/finalproject/gallery.html">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/gallery.css">
+
+  <script type="module" src="scripts/navigation.js"></script>
+  <script type="module" src="scripts/gallery.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Casil Shots Photography home">
+        <span class="brand-mark" aria-hidden="true">CS</span>
+
+        <span class="brand-text">
+          <span class="brand-name">Casil Shots</span>
+          <span class="brand-description">Photography</span>
+        </span>
+      </a>
+
+      <button class="menu-button" id="menu-button" type="button" aria-controls="main-navigation" aria-expanded="false"
+        aria-label="Open navigation menu" hidden>
+        <span id="menu-symbol" aria-hidden="true">☰</span>
+      </button>
+
+      <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="gallery.html" aria-current="page">Gallery</a>
+          </li>
+
+          <li>
+            <a href="services.html">Services &amp; Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section-container gallery-main" tabindex="-1">
+    <div class="gallery-heading">
+      <p class="eyebrow">Explore the collection</p>
+
+      <h1>Stories in photographs</h1>
+
+      <p>
+        Browse by occasion and open a photograph to explore its details.
+      </p>
+    </div>
+
+    <section aria-labelledby="collection-title">
+      <h2 id="collection-title">The collection</h2>
+
+      <div class="gallery-toolbar">
+        <label for="category-filter">
+          Filter by occasion
+
+          <select id="category-filter" name="category">
+            <option value="all">All photographs</option>
+            <option value="wedding">Weddings</option>
+            <option value="birthday">Birthdays</option>
+            <option value="portrait">Portraits</option>
+          </select>
+        </label>
+
+        <p id="gallery-status" role="status" aria-atomic="true">
+          Loading photographs…
+        </p>
+      </div>
+
+      <div id="photo-grid" class="photo-grid" aria-busy="true"></div>
+
+      <button id="retry-button" class="button button-primary" type="button" hidden>
+        Try Again
+      </button>
+
+      <noscript>
+        <p>
+          Please enable JavaScript to load and filter the photo collection.
+        </p>
+      </noscript>
+    </section>
+  </main>
+
+  <dialog id="photo-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <form method="dialog" class="dialog-controls">
+        <button class="dialog-close" type="submit" aria-label="Close photo details" autofocus>
+          Close
+        </button>
+      </form>
+
+      <h2 id="dialog-title">Photo details</h2>
+
+      <img id="dialog-image" src="images/favicon.svg" alt="" hidden>
+
+      <p id="dialog-image-status" hidden>
+        Photo unavailable.
+      </p>
+
+      <dl class="photo-details">
+        <dt>Category</dt>
+        <dd id="dialog-category"></dd>
+
+        <dt>Orientation</dt>
+        <dd id="dialog-orientation"></dd>
+
+        <dt>Description</dt>
+        <dd id="dialog-description"></dd>
+      </dl>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-inner section-container">
+      <div>
+        <p class="footer-brand">Casil Shots Photography</p>
+        <p>Weddings · Birthdays · Portraits</p>
+        <p>Navotas City, Philippines</p>
+      </div>
+
+      <div class="footer-project">
+        <p>Jeffrey Davila · WDD 231</p>
+        <p>Photography Website Project</p>
+
+        <p>
+          &copy; <span id="current-year">2026</span>
+          Casil Shots
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

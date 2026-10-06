@@ -1,0 +1,137 @@
+[
+  {
+    "id": "wedding-01",
+    "title": "The Wedding Ceremony",
+    "category": "wedding",
+    "orientation": "Landscape",
+    "description": "A view of the couple during their wedding ceremony.",
+    "image": "images/wedding-01.jpg",
+    "alt": "Couple standing together during their wedding ceremony"
+  },
+  {
+    "id": "wedding-02",
+    "title": "Wedding Details",
+    "category": "wedding",
+    "orientation": "Landscape",
+    "description": "A close view of the rings and details prepared for the celebration.",
+    "image": "images/wedding-02.webp",
+    "alt": "Wedding rings arranged beside wedding decorations"
+  },
+  {
+    "id": "wedding-03",
+    "title": "Together After the Ceremony",
+    "category": "wedding",
+    "orientation": "Landscape",
+    "description": "A portrait of the newly married couple after the ceremony.",
+    "image": "images/wedding-03.jpg",
+    "alt": "Newly married couple posing together"
+  },
+  {
+    "id": "wedding-04",
+    "title": "A Family Celebration",
+    "category": "wedding",
+    "orientation": "Landscape",
+    "description": "The couple gathers with family members for a wedding photograph.",
+    "image": "images/wedding-04.webp",
+    "alt": "Wedding couple posing with their family"
+  },
+  {
+    "id": "wedding-05",
+    "title": "The Reception",
+    "category": "wedding",
+    "orientation": "Landscape",
+    "description": "A moment from the celebration at the wedding reception.",
+    "image": "images/wedding-05.webp",
+    "alt": "Wedding guests celebrating at a reception"
+  },
+  {
+    "id": "birthday-01",
+    "title": "Birthday Wishes",
+    "category": "birthday",
+    "orientation": "Landscape",
+    "description": "The birthday celebrant prepares to blow out the candles.",
+    "image": "images/birthday-01.jpg",
+    "alt": "Birthday celebrant sitting in front of a cake with candles"
+  },
+  {
+    "id": "birthday-02",
+    "title": "Celebration Details",
+    "category": "birthday",
+    "orientation": "Landscape",
+    "description": "Decorations and a birthday cake arranged for the gathering.",
+    "image": "images/birthday-02.webp",
+    "alt": "Birthday cake displayed with party decorations"
+  },
+  {
+    "id": "birthday-03",
+    "title": "Friends Together",
+    "category": "birthday",
+    "orientation": "Landscape",
+    "description": "Friends gather for a photograph with the birthday celebrant.",
+    "image": "images/birthday-03.webp",
+    "alt": "Friends posing together during a birthday party"
+  },
+  {
+    "id": "birthday-04",
+    "title": "Family Birthday Portrait",
+    "category": "birthday",
+    "orientation": "Landscape",
+    "description": "A family portrait taken during a birthday celebration.",
+    "image": "images/birthday-04.jpg",
+    "alt": "Family standing together beside birthday decorations"
+  },
+  {
+    "id": "birthday-05",
+    "title": "A Moment of Joy",
+    "category": "birthday",
+    "orientation": "Landscape",
+    "description": "A candid moment of laughter during the birthday gathering.",
+    "image": "images/birthday-05.webp",
+    "alt": "Birthday celebrant laughing with guests"
+  },
+  {
+    "id": "portrait-01",
+    "title": "Natural Light Portrait",
+    "category": "portrait",
+    "orientation": "Landscape",
+    "description": "An individual portrait photographed in natural light.",
+    "image": "images/portrait-01.jpg",
+    "alt": "Person posing for a portrait in natural light"
+  },
+  {
+    "id": "portrait-02",
+    "title": "An Outdoor Moment",
+    "category": "portrait",
+    "orientation": "Landscape",
+    "description": "A relaxed individual portrait in an outdoor setting.",
+    "image": "images/portrait-02.webp",
+    "alt": "Person posing outdoors for a portrait"
+  },
+  {
+    "id": "portrait-03",
+    "title": "A Portrait for Two",
+    "category": "portrait",
+    "orientation": "Landscape",
+    "description": "A couple shares a moment during a portrait session.",
+    "image": "images/portrait-03.webp",
+    "alt": "Couple sitting together during a portrait session"
+  },
+  {
+    "id": "portrait-04",
+    "title": "Family Connection",
+    "category": "portrait",
+    "orientation": "Landscape",
+    "description": "A family gathers for a portrait together.",
+    "image": "images/portrait-04.webp",
+    "alt": "Family posing together for a group portrait"
+  },
+  {
+    "id": "portrait-05",
+    "title": "A Personal Milestone",
+    "category": "portrait",
+    "orientation": "Landscape",
+    "description": "An individual portrait celebrating a personal milestone.",
+    "image": "images/portrait-05.webp",
+    "alt": "Person smiling during a milestone portrait session"
+  }
+]

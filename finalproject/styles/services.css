@@ -1,0 +1,608 @@
+/* =========================================================
+   SERVICES PAGE
+   Casil Shots Photography
+   ========================================================= */
+
+
+.services-main {
+  padding-bottom: 0;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.services-hero {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(280px, 0.6fr);
+
+  gap: 50px;
+  align-items: center;
+
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+.services-hero-copy {
+  max-width: 720px;
+}
+
+
+.services-hero-copy h1 {
+  max-width: 680px;
+
+  margin-top: 8px;
+  margin-bottom: 22px;
+
+  font-size: clamp(2.6rem, 6vw, 5.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+
+.services-intro {
+  max-width: 620px;
+
+  margin-bottom: 30px;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+.services-hero-card {
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1c1b1a,
+      #36302c
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 20px 55px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+.hero-card-label {
+  margin-bottom: auto;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+.services-hero-card h2 {
+  margin: 0 0 20px;
+
+  color: #ffffff;
+
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+}
+
+
+.services-hero-card p:last-child {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+  max-width: 650px;
+
+  margin-bottom: 38px;
+}
+
+
+.section-heading h2 {
+  margin-top: 6px;
+  margin-bottom: 12px;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.service-section {
+  padding-top: 40px;
+  padding-bottom: 90px;
+}
+
+
+.service-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+
+.service-card {
+  position: relative;
+
+  min-height: 430px;
+
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(31, 29, 27, 0.13);
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.05);
+}
+
+
+.service-number {
+  margin-bottom: 55px;
+
+  color: #a69d94;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+
+.service-category {
+  margin-bottom: 7px;
+
+  color: #776c63;
+
+  font-size: 0.77rem;
+  font-weight: 700;
+
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+
+  font-size: 1.65rem;
+}
+
+
+.service-card > div:last-child > p:not(.service-category) {
+  line-height: 1.7;
+}
+
+
+.service-list {
+  display: grid;
+  gap: 9px;
+
+  margin-top: 22px;
+  padding-left: 20px;
+}
+
+
+.service-list li {
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+  padding-top: 85px;
+  padding-bottom: 85px;
+
+  background: #f2efeb;
+}
+
+
+.process-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.process-grid li {
+  padding:
+    30px 25px;
+
+  border-top:
+    1px solid
+    rgba(33, 31, 29, 0.2);
+}
+
+
+.process-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  background: #1f1d1b;
+
+  color: #ffffff;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+
+.process-grid h3 {
+  margin-bottom: 10px;
+
+  font-size: 1.35rem;
+}
+
+
+.process-grid p {
+  margin: 0;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: 65px;
+
+  padding-top: 95px;
+  padding-bottom: 100px;
+}
+
+
+.contact-information {
+  max-width: 480px;
+}
+
+
+.contact-information h2 {
+  margin-top: 7px;
+  margin-bottom: 20px;
+
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+}
+
+
+.contact-information > p {
+  line-height: 1.75;
+}
+
+
+.contact-details {
+  display: grid;
+  gap: 24px;
+
+  margin-top: 45px;
+}
+
+
+.contact-details > div {
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    rgba(29, 27, 25, 0.15);
+}
+
+
+.contact-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #81766d;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.contact-details p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.inquiry-form {
+  padding: 35px;
+
+  border:
+    1px solid
+    rgba(29, 27, 25, 0.12);
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 16px 45px
+    rgba(0, 0, 0, 0.05);
+}
+
+
+.inquiry-form fieldset {
+  margin: 0 0 35px;
+  padding: 0;
+
+  border: 0;
+}
+
+
+.inquiry-form legend {
+  width: 100%;
+
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+
+  border-bottom:
+    1px solid
+    rgba(29, 27, 25, 0.12);
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.inquiry-form label {
+  display: grid;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+
+.inquiry-form input,
+.inquiry-form select,
+.inquiry-form textarea {
+  width: 100%;
+
+  padding:
+    13px 14px;
+
+  border:
+    1px solid
+    #c9c3bd;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #1f1d1b;
+
+  font: inherit;
+
+  font-weight: 400;
+}
+
+
+.inquiry-form textarea {
+  min-height: 145px;
+
+  resize: vertical;
+}
+
+
+.inquiry-form input:focus,
+.inquiry-form select:focus,
+.inquiry-form textarea:focus {
+  outline:
+    3px solid
+    rgba(73, 61, 52, 0.17);
+
+  border-color: #4f463f;
+}
+
+
+.inquiry-form input:required:valid,
+.inquiry-form select:required:valid {
+  border-color: #6c8f72;
+}
+
+
+.required-note {
+  margin-top: -10px;
+  margin-bottom: 22px;
+
+  color: #6f665f;
+
+  font-size: 0.82rem;
+}
+
+
+.submit-button {
+  width: 100%;
+
+  border: 0;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .services-hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 55px;
+    padding-bottom: 60px;
+  }
+
+
+  .services-hero-card {
+    min-height: 290px;
+  }
+
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .service-card {
+    min-height: auto;
+  }
+
+
+  .service-number {
+    margin-bottom: 35px;
+  }
+
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .contact-section {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  .contact-information {
+    max-width: 650px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .services-hero {
+    gap: 30px;
+
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+
+  .services-hero-card {
+    min-height: 250px;
+
+    padding: 25px;
+  }
+
+
+  .service-section {
+    padding-bottom: 65px;
+  }
+
+
+  .service-card {
+    padding: 24px;
+  }
+
+
+  .process-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+
+  .contact-section {
+    padding-top: 65px;
+    padding-bottom: 70px;
+  }
+
+
+  .inquiry-form {
+    padding: 22px;
+  }
+
+
+  .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+}
