@@ -3,7 +3,12 @@
    Casil Shots Photography
    ========================================================= */
 
-body {
+/*
+  Font is placed on html instead of body so we do not
+  duplicate the body selector already defined in styles.css.
+*/
+
+html {
   font-family: "Montserrat", sans-serif;
 }
 

@@ -539,3 +539,121 @@ img {
     transition: none;
   }
 }
+
+/* =========================================================
+   RESPONSIVE NAVIGATION
+   ========================================================= */
+
+/* Desktop */
+.header-inner {
+  position: relative;
+}
+
+.menu-button {
+  display: none;
+}
+
+.main-navigation {
+  display: block;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .header-inner {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+  }
+
+  .menu-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+
+    background: var(--surface);
+
+    color: var(--primary);
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+  }
+
+  .menu-button:hover,
+  .menu-button:focus-visible {
+    background: var(--primary);
+    color: var(--surface);
+  }
+
+  .main-navigation {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 0.5rem);
+    right: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    padding: 0.75rem;
+
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    box-shadow:
+      0 12px 30px
+      rgb(0 0 0 / 12%);
+  }
+
+  .main-navigation.open {
+    display: block;
+  }
+
+  .main-navigation ul {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .main-navigation li {
+    width: 100%;
+  }
+
+  .main-navigation a {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.85rem 1rem;
+
+    border-radius: 7px;
+  }
+
+}
